@@ -91,9 +91,15 @@ h1{ font-family:var(--font-display); font-weight:700; font-size:clamp(3rem,7.5vw
 .btn-sm{ font-size:13.5px; padding:9px 15px; }
 
 .figure{ position:relative; display:flex; justify-content:center; align-items:center; min-height:380px; }
-.figure .ph{ transform:rotate(7deg); width:74%; aspect-ratio:3/4; border:1.5px dashed #D2D2CC; border-radius:14px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:8px; color:var(--muted); padding:22px; background:linear-gradient(160deg,#FAFAF8,#fff); }
-.figure .ph span{ font-family:var(--font-display); color:var(--ink); font-size:19px; font-weight:600; }
-.figure .ph small{ font-size:12.5px; line-height:1.6; max-width:22ch; }
+.figure .photo{
+  display:block; width:86%; max-width:310px; height:auto;
+  filter:drop-shadow(0 14px 26px rgba(0,0,0,.18));
+  transition:transform .45s ease, filter .45s ease;
+}
+.figure .photo:hover{
+  transform:translateY(-5px);
+  filter:drop-shadow(0 22px 34px rgba(0,0,0,.22));
+}
 
 /* ---- sezioni ---- */
 section{ padding:34px 0; }
@@ -215,12 +221,9 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
         </div>
       </div>
       <div class="figure">
-        <!-- TODO: sostituire questo segnaposto con la tua foto ritagliata
-             es. <img src="assets/img/matteo.png" alt="Matteo Brambilla"> -->
-        <div class="ph">
-          <span>La tua foto qui</span>
-          <small>figura al pc · ritagliata su fondo bianco · leggermente ruotata</small>
-        </div>
+        <img class="photo" src="assets/img/matteo.png"
+             alt="Matteo Brambilla al computer" width="259" height="355"
+             loading="eager" decoding="async">
       </div>
     </div>
   </div>
