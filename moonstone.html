@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moonstone — Matteo Brambilla</title>
+<meta name="description" content="Moonstone: Chief of Staff at a VC deeptech, climate & health fund. Portfolio platform, hiring, team coordination.">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+@property --bd{ syntax:'<angle>'; inherits:false; initial-value:0deg; }
+
+:root{
+  --bg:#FFFFFF;
+  --card:#FFFFFF;
+  --ink:#0B0B0B;
+  --body:#2C2C2C;
+  --muted:#7C7C7C;
+  --border:#E6E5E1;
+  --shadow:0 1px 2px rgba(0,0,0,.05), 0 12px 34px rgba(0,0,0,.04);
+  --font-display:'Clash Display', sans-serif;
+  --font-body:'General Sans', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background-color:var(--bg);
+  background-image:radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px);
+  background-size:24px 24px;
+  color:var(--body); font-family:var(--font-body); -webkit-font-smoothing:antialiased; line-height:1.55;
+}
+a{ color:inherit; }
+
+.topbar{
+  position:sticky; top:0; z-index:50;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:15px 32px; background:#fff; border-bottom:1px solid var(--border);
+  box-shadow:0 6px 20px rgba(0,0,0,.07);
+}
+.topbar .left{ display:flex; align-items:center; gap:12px; }
+.topbar .name{ font-family:var(--font-display); font-weight:600; font-size:16px; color:var(--ink); text-decoration:none; }
+.topbar nav{ display:flex; gap:10px; align-items:center; font-size:14px; }
+.topbar nav a{ position:relative; text-decoration:none; padding:7px 13px; border-radius:999px; color:var(--ink); --btn-line:#0B0B0B; --btn-glow:rgba(11,11,11,.5); }
+.topbar nav a::before, .topbar nav a::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); width:60%; height:2px; border-radius:2px; background:linear-gradient(90deg, transparent, var(--btn-line), transparent); opacity:0; pointer-events:none; transition:opacity .3s ease; filter:drop-shadow(0 0 5px var(--btn-glow)); }
+.topbar nav a::before{ top:3px; }
+.topbar nav a::after{ bottom:3px; }
+.topbar nav a:hover::before{ opacity:1; }
+.topbar nav a:hover::after{ opacity:.55; }
+.topbar nav .ghost{ border:1px solid var(--border); }
+.topbar nav .solid{ background:var(--ink); color:#fff; --btn-line:#FFFFFF; --btn-glow:rgba(255,255,255,.6); }
+
+.wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
+
+.btn{ position:relative; font-family:var(--font-body); font-size:15px; padding:13px 22px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; transition:all .18s; --btn-line:#0B0B0B; --btn-glow:rgba(11,11,11,.5); }
+.btn::before, .btn::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); width:68%; height:2px; border-radius:2px; background:linear-gradient(90deg, transparent, var(--btn-line), transparent); opacity:0; pointer-events:none; transition:opacity .3s ease; filter:drop-shadow(0 0 5px var(--btn-glow)); }
+.btn::before{ top:4px; }
+.btn::after{ bottom:4px; }
+.btn:hover::before{ opacity:1; }
+.btn:hover::after{ opacity:.55; }
+.btn-ghost{ border:1px solid var(--border); color:var(--ink); }
+.btn-ghost:hover{ border-color:var(--ink); }
+.btn-solid{ background:var(--ink); color:#fff; font-weight:500; --btn-line:#FFFFFF; --btn-glow:rgba(255,255,255,.6); }
+.btn-solid:hover{ background:#000; }
+
+/* page hero */
+.page-hero{ padding:72px 0 48px; }
+.back{ font-family:var(--font-mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:28px; }
+.back:hover{ color:var(--ink); }
+.page-hero h1{ font-family:var(--font-display); font-weight:700; font-size:clamp(2.4rem,6vw,5rem); line-height:1; letter-spacing:-.02em; color:var(--ink); margin-bottom:10px; }
+.page-hero .pmeta{ font-family:var(--font-mono); font-size:13px; color:var(--muted); margin-bottom:36px; }
+
+/* bullet list */
+.bullet-list{ list-style:disc; padding-left:1.2em; display:flex; flex-direction:column; gap:10px; }
+.bullet-list li{ font-size:16.5px; color:var(--body); }
+
+section{ padding:34px 0; }
+.sec-label{ font-family:var(--font-mono); font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
+.sec-label .n{ color:var(--ink); }
+
+.card{
+  position:relative; isolation:isolate;
+  background:var(--card); border:1px solid var(--border); border-radius:18px;
+  padding:30px; box-shadow:var(--shadow);
+}
+
+.halo-wrap{ position:relative; isolation:isolate; border-radius:20px; display:flex; }
+.halo-wrap > .card{ flex:1; min-width:0; }
+.halo-wrap .card{
+  border-color:#D5D4CE;
+  box-shadow:0 0 0 1px rgba(0,0,0,.04), 0 6px 16px rgba(0,0,0,.05);
+  transition:box-shadow .55s, border-color .55s;
+}
+.halo-wrap:hover .card{
+  border-color:#9A9994;
+  box-shadow:0 0 0 1.5px rgba(15,15,15,.5), 0 0 26px 3px rgba(12,12,12,.24), 0 8px 22px rgba(0,0,0,.10);
+}
+.halo-orbit{
+  position:absolute; inset:-5px; z-index:-1; border-radius:25px; pointer-events:none;
+  background:conic-gradient(from var(--bd), transparent 0deg, transparent 256deg, rgba(25,25,25,.34) 322deg, transparent 360deg);
+  filter:blur(15px); opacity:1;
+  animation:orbit 6.5s linear infinite;
+  transition:opacity .5s;
+}
+.halo-wrap:hover .halo-orbit{ opacity:0; animation-play-state:paused; }
+@keyframes orbit{ to{ --bd:360deg; } }
+
+/* demo placeholder */
+.demo-placeholder{
+  border:1px solid var(--border);
+  border-radius:18px;
+  min-height:340px;
+  background:var(--card);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  font-family:var(--font-mono);
+  font-size:13px;
+}
+
+h2{ font-family:var(--font-display); font-weight:600; font-size:clamp(1.4rem,3vw,1.95rem); line-height:1.2; color:var(--ink); margin-bottom:16px; letter-spacing:-.01em; }
+
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.in{ opacity:1; transform:none; }
+
+footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:center; font-family:var(--font-mono); }
+
+@media (max-width:860px){
+  .wrap{ padding:0 20px; }
+  .page-hero{ padding:48px 0 32px; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  .halo-orbit{ animation:none; }
+  .reveal{ opacity:1; transform:none; transition:none; }
+  *{ transition:none !important; }
+}
+</style>
+
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="left">
+      <a class="name" href="index.html">Matteo Brambilla</a>
+    </div>
+    <nav>
+      <a href="index.html#portfolio" class="ghost">Portfolio</a>
+      <a href="https://www.linkedin.com/in/matteo-brambilla-77528b255/" class="ghost">LinkedIn</a>
+      <a href="#" class="solid">CV</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="page-hero reveal">
+      <a class="back" href="index.html">← Back</a>
+      <h1>Moonstone<br>(chief of staff)</h1>
+      <p class="pmeta">VC · Deeptech, Climate &amp; Health</p>
+      <ul class="bullet-list">
+        <li>Built a platform with a developer to centralize portfolio operations, including updates, team Q&amp;A, documentation, reporting, and LP-facing visibility across portfolio companies</li>
+        <li>Ran hiring process for an intern and supported commercial recruiting across 2 companies</li>
+        <li>Owned weekly team reporting cadence and internal coordination</li>
+        <li>Conducted startup scouting and deal flow pipeline</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="reveal">
+      <h2>Demo</h2>
+      <div class="demo-placeholder">
+        <!-- video coming soon -->
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2026 Matteo Brambilla — Milan</footer>
+
+  <script>
+(function () {
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
