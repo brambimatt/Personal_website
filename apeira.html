@@ -189,7 +189,7 @@ svg.italy{ position:absolute; inset:0; width:100%; height:100%; overflow:visible
 .tour-list .stop{ display:flex; flex-direction:column; }
 
 /* modalità mappa: stage a tutta larghezza, pop-up posizionati attorno alla mappa */
-.mode-map .tour-stage{ display:block; position:relative; width:100vw; margin-left:calc(50% - 50vw); }
+.mode-map .tour-stage{ display:flow-root; position:relative; width:100vw; margin-left:calc(50% - 50vw); }
 .mode-map .tour-list{ display:none; }
 
 footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:center; font-family:var(--font-mono); }
@@ -464,26 +464,30 @@ footer a{ color:var(--ink); text-decoration:none; }
   // zone attorno alla mappa: sopra (Torino/Milano), lati (Genova/Roma sx, Bologna/Napoli dx), sotto-centro (Catania)
   function layout() {
     if (!built) return;
+    function H(k) { return popEls[k] ? (popEls[k].offsetHeight || 210) : 210; }
+    var GAP = 22, popW = popEls[cities[0].key].offsetWidth || 222;
+    // abbassa la mappa quel tanto che basta perché Torino/Milano stiano INTERAMENTE sopra (niente sovrapposizione)
+    mapStage.style.marginTop = (Math.max(H('Torino'), H('Milano')) + 2 * GAP) + 'px';
     var sRect = stageFull.getBoundingClientRect(), mRect = mapStage.getBoundingClientRect();
     var mx = mRect.left - sRect.left, my = mRect.top - sRect.top, mw = mRect.width, mh = mRect.height;
-    var cx = mx + mw / 2, GAP = 22, popW = popEls[cities[0].key].offsetWidth || 222;
+    var cx = mx + mw / 2, sw = sRect.width;
     cities.forEach(function (c) { c.px = mx + c.x / VBW * mw; c.py = my + c.y / VBH * mh; });
-    function H(k) { return popEls[k].offsetHeight || 210; }
     function setPos(k, left, top, zone) {
       if (!popEls[k]) return;
-      left = Math.max(10, Math.min(left, sRect.width - popW - 10));
+      left = Math.max(10, Math.min(left, sw - popW - 10));
       top = Math.max(6, top);
       var p = popEls[k]; p.style.left = left + 'px'; p.style.top = top + 'px'; p._zone = zone;
     }
-    var leftX = mx - GAP - popW, rightX = mx + mw + GAP;
-    var topY = Math.max(6, my - GAP - Math.max(H('Torino'), H('Milano')));
-    setPos('Torino', cx - popW - 14, topY, 'top');     // sopra-sinistra
-    setPos('Milano', cx + 14, topY, 'top');            // sopra-destra
-    setPos('Genova', leftX, my + 6, 'left');           // lato sinistro, alto
-    setPos('Roma',   leftX, my + 18 + H('Genova'), 'left');  // lato sinistro, basso
-    setPos('Bologna', rightX, my + 6, 'right');        // lato destro, alto
-    setPos('Napoli',  rightX, my + 18 + H('Bologna'), 'right'); // lato destro, basso
-    setPos('Catania', cx - popW / 2, my + mh + GAP, 'bottom');  // sotto la Sicilia, centrato
+    // colonne laterali centrate negli spazi vuoti a sx/dx (sfrutta tutta la larghezza)
+    var leftX = (mx - popW) / 2;
+    var rightX = (mx + mw) + (sw - (mx + mw) - popW) / 2;
+    setPos('Torino', cx - popW - 14, my - GAP - H('Torino'), 'top');   // sopra la mappa, sinistra
+    setPos('Milano', cx + 14, my - GAP - H('Milano'), 'top');          // sopra la mappa, destra
+    setPos('Genova', leftX, my + 8, 'left');                            // spazio vuoto sinistro, alto
+    setPos('Roma',   leftX, my + 22 + H('Genova'), 'left');             // spazio vuoto sinistro, basso
+    setPos('Bologna', rightX, my + 8, 'right');                         // spazio vuoto destro, alto
+    setPos('Napoli',  rightX, my + 22 + H('Bologna'), 'right');         // spazio vuoto destro, basso
+    setPos('Catania', cx - popW / 2, my + mh + GAP, 'bottom');          // sotto la Sicilia, centrato
     var maxB = my + mh;
     cities.forEach(function (c) { var p = popEls[c.key]; maxB = Math.max(maxB, p.offsetTop + p.offsetHeight); });
     stageFull.style.height = (maxB + 24) + 'px';
