@@ -1,0 +1,4 @@
+# Nessun motore di ricerca deve indicizzare o scansionare questo sito.
+# Le pagine sono raggiungibili solo tramite link diretto.
+User-agent: *
+Disallow: /
