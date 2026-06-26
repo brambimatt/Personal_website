@@ -140,10 +140,12 @@ section{ padding:34px 0; }
 .tour-col{ display:flex; flex-direction:column; gap:14px; padding-top:8px; min-width:0; }
 .tour-col.left{ align-items:flex-end; }
 .tour-col.right{ align-items:flex-start; }
-.popup{ position:absolute; width:222px; background:var(--card); border:1px solid var(--border); border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.16); padding:12px; z-index:5; opacity:0; transform:translateY(8px) scale(.98); transition:opacity .45s ease, transform .45s ease; cursor:pointer; }
+.popup{ position:absolute; width:270px; background:var(--card); border:1px solid var(--border); border-radius:16px; box-shadow:0 14px 40px rgba(0,0,0,.20); padding:16px; z-index:5; opacity:0; transform:translateY(8px) scale(.98); transition:opacity .45s ease, transform .45s ease; cursor:pointer; }
 .popup.in{ opacity:1; transform:none; }
 .popup:hover{ border-color:#9A9994; }
-.popup .stop-blurb{ font-size:13px; }
+.popup .stop-blurb{ font-size:14px; }
+.popup .stop-title{ font-size:1.12rem; }
+.popup .stop-city{ font-size:12px; }
 .popup .ph{ aspect-ratio:16 / 9; }
 .leaders{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:3; overflow:visible; color:var(--ink); }
 .leaders line{ stroke:var(--ink); stroke-width:1.5; opacity:.5; }
@@ -163,7 +165,7 @@ svg.italy{ position:absolute; inset:0; width:100%; height:100%; overflow:visible
 .van{ position:absolute; transform:translate(-50%,-50%); width:60px; z-index:6; pointer-events:none; }
 .van-inner{ position:relative; width:100%; animation:bob 2.6s ease-in-out infinite; filter:drop-shadow(0 6px 7px rgba(0,0,0,.28)); }
 .van-svg{ width:100%; height:auto; display:block; }
-.van-img{ position:absolute; inset:0; width:100%; height:auto; opacity:0; transition:opacity .25s; }
+.van-img{ position:absolute; inset:0; width:100%; height:auto; opacity:0; transition:opacity .25s; mix-blend-mode:multiply; }
 .van.has-img .van-img{ opacity:1; }
 .van.has-img .van-svg{ visibility:hidden; }
 @keyframes bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-3px); } }
