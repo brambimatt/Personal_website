@@ -243,7 +243,7 @@ footer a{ color:var(--ink); text-decoration:none; }
         <div class="film-stage">
           <span class="corner tl"></span><span class="corner tr"></span>
           <span class="corner bl"></span><span class="corner br"></span>
-          <div class="film-frame" id="filmFrame" data-yt="4U3_t56Zcvk" data-start="3">
+          <div class="film-frame" id="filmFrame" data-yt="4U3_t56Zcvk" data-start="0">
             <img class="film-thumb" src="https://i.ytimg.com/vi/4U3_t56Zcvk/maxresdefault.jpg" alt="for the misfits — Apeira launch film"
                  onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/4U3_t56Zcvk/hqdefault.jpg'">
             <button class="film-play" type="button" aria-label="Play the launch film"><span class="pbtn"></span></button>
@@ -511,7 +511,7 @@ footer a{ color:var(--ink); text-decoration:none; }
       if (idx >= cities.length - 1) { playing = false; return; }
       var from = cities[idx].len, to = cities[idx + 1].len;
       var dur = Math.max(650, (to - from) / L * TRAVEL);
-      closeAll(); idx++;
+      idx++;
       animateTo(from, to, dur, function () {
         if (!playing) return;
         openPopup(cities[idx]);
