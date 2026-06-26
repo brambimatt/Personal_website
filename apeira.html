@@ -486,17 +486,18 @@ footer a{ color:var(--ink); text-decoration:none; }
     var rightX = (mx + mw) + Math.max(6, (sw - (mx + mw) - popW) / 2);
     var colR = -30, colL = my - 70;
     // sopra la mappa
-    setPos('Torino', cx - popW - 20, my - GAP - H('Torino'), 'top');
-    setPos('Milano', cx + 20, my - GAP - H('Milano'), 'top');
+    setPos('Torino', cx - popW - 60, my - GAP - H('Torino'), 'top');
+    setPos('Milano', cx - 10,        my - GAP - H('Milano'), 'top');
     // colonna sinistra: Genova, Roma — alzate
     setPos('Genova', leftX, colL, 'left');
     setPos('Roma',   leftX, colL + 12 + H('Genova'), 'left');
-    // colonna destra: Bologna; Napoli più lontana dalla mappa; Catania più vicina
-    var napX = Math.min(rightX + 30, sw - popW - 6);
+    // colonna destra: Bologna più a sinistra; Napoli più a destra; Catania sollevata
+    var bolX = rightX - 40;
+    var napX = Math.min(rightX + 60, sw - popW - 6);
     var catX = mx + mw + 18;
-    setPos('Bologna', rightX, colR, 'right');
-    setPos('Napoli',  napX,   colR + 12 + H('Bologna'), 'right');
-    setPos('Catania', catX,   colR + 24 + H('Bologna') + H('Napoli'), 'right');
+    setPos('Bologna', bolX, colR, 'right');
+    setPos('Napoli',  napX, colR + 12 + H('Bologna'), 'right');
+    setPos('Catania', catX, colR + H('Bologna') + H('Napoli') - 10, 'right');
     var ctrls = stageFull.querySelector('.tour-controls');
     if (ctrls) ctrls.style.top = (my + mh + 24) + 'px';   // tasti sotto la mappa, centrati
     var maxB = my + mh + (ctrls ? ctrls.offsetHeight + 24 : 0);
