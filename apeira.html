@@ -491,11 +491,12 @@ footer a{ color:var(--ink); text-decoration:none; }
     // colonna sinistra: Genova, Roma — alzate
     setPos('Genova', leftX, colL, 'left');
     setPos('Roma',   leftX, colL + 12 + H('Genova'), 'left');
-    // colonna destra: Bologna non deve toccare Roma (leftX + popW + gap)
-    var bolX = Math.max(leftX + popW + 30, rightX - 20);
+    // Bologna: posizione custom nel buco tra Torino e la mappa
+    var bolX = leftX + popW + 20;
+    var bolY = my + 20;
     var napX = Math.min(rightX + 60, sw - popW - 6);
     var catX = mx + mw + 18;
-    setPos('Bologna', bolX, colR, 'right');
+    setPos('Bologna', bolX, bolY, 'right');
     setPos('Napoli',  napX, colR + 12 + H('Bologna'), 'right');
     setPos('Catania', catX, colR + H('Bologna') + H('Napoli') - 10, 'right');
     var ctrls = stageFull.querySelector('.tour-controls');
