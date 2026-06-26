@@ -72,6 +72,8 @@ a{ color:inherit; }
 .status .d{ width:7px; height:7px; border-radius:50%; background:var(--ink); animation:pulse 2s infinite; }
 @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
 .eyebrow{ font-family:var(--font-mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); margin-bottom:18px; }
+.back{ font-family:var(--font-mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:28px; }
+.back:hover{ color:var(--ink); }
 h1{ font-family:var(--font-display); font-weight:700; font-size:clamp(3rem,7.5vw,6.2rem); line-height:.95; letter-spacing:-.02em; color:var(--ink); margin-bottom:22px; }
 .info{ font-size:16px; color:var(--ink); margin-bottom:16px; }
 .blurb{ font-size:17px; color:var(--muted); max-width:46ch; margin-bottom:30px; }
@@ -229,11 +231,11 @@ footer a{ color:var(--ink); text-decoration:none; }
   <!-- barra fissa in alto -->
   <header class="topbar">
     <div class="left">
-      <a class="name" href="apeira.html">Apeira</a>
+      <a class="name" href="index.html">Matteo Brambilla</a>
     </div>
     <nav>
       <a href="#tour" class="ghost">The Tour</a>
-      <a href="index.html" class="ghost">← Matteo</a>
+      <a href="index.html#portfolio" class="ghost">Portfolio</a>
       <a href="https://www.linkedin.com/in/matteo-brambilla-77528b255/" class="solid">LinkedIn</a>
     </nav>
   </header>
@@ -242,6 +244,7 @@ footer a{ color:var(--ink); text-decoration:none; }
   <div class="wrap">
     <div class="hero reveal">
       <div>
+        <a class="back" href="index.html">← Back</a>
         <p class="eyebrow">Milan · Hacker house</p>
         <h1>Apeira</h1>
         <p class="info">the principle of the boundless</p>
