@@ -491,9 +491,9 @@ footer a{ color:var(--ink); text-decoration:none; }
     // colonna sinistra: Genova, Roma — alzate
     setPos('Genova', leftX, colL, 'left');
     setPos('Roma',   leftX, colL + 12 + H('Genova'), 'left');
-    // Bologna: posizione custom nel buco tra Torino e la mappa
-    var bolX = leftX + popW + 20;
-    var bolY = my + 20;
+    // Bologna: posizione custom nel buco a destra della mappa, sotto Milano e sopra Napoli
+    var bolX = mx + mw + 40;
+    var bolY = my - 30;
     var napX = Math.min(rightX + 60, sw - popW - 6);
     var catX = mx + mw + 18;
     setPos('Bologna', bolX, bolY, 'right');
