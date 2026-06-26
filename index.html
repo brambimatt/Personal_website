@@ -78,7 +78,6 @@ h1{ font-family:var(--font-display); font-weight:700; font-size:clamp(3rem,7.5vw
 .ctas{ display:flex; flex-wrap:wrap; gap:12px; }
 
 .btn{ position:relative; font-family:var(--font-body); font-size:15px; padding:13px 22px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; transition:all .18s; --btn-line:#0B0B0B; --btn-glow:rgba(11,11,11,.5); }
-/* linea-neon che appare in hover (sopra e, più tenue, sotto) — monocromo, DENTRO il bottone per avere contrasto */
 .btn::before, .btn::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); width:68%; height:2px; border-radius:2px; background:linear-gradient(90deg, transparent, var(--btn-line), transparent); opacity:0; pointer-events:none; transition:opacity .3s ease; filter:drop-shadow(0 0 5px var(--btn-glow)); }
 .btn::before{ top:4px; }
 .btn::after{ bottom:4px; }
@@ -185,12 +184,10 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
 
 </style>
 
-<!-- Se il JavaScript è disattivato, mostra comunque tutti i contenuti -->
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
 
-  <!-- barra fissa in alto -->
   <header class="topbar">
     <div class="left">
       <a class="name" href="/">Matteo Brambilla</a>
@@ -198,11 +195,10 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
     <nav>
       <a href="#portfolio" class="ghost">Portfolio</a>
       <a href="https://www.linkedin.com/in/matteo-brambilla-77528b255/" class="ghost">LinkedIn</a>
-      <a href="one-pager.html" class="solid">CV</a>
+      <a href="assets/matteo-brambilla-cv.pdf" download class="solid">CV</a>
     </nav>
   </header>
 
-  <!-- HERO -->
   <div class="wrap">
     <div class="hero reveal">
       <div>
@@ -210,7 +206,7 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
         <p class="info">22 · Milan</p>
         <p class="blurb">three years in: early-stage operator, then VC, now back to building.</p>
         <div class="ctas">
-          <a href="one-pager.html" class="btn btn-ghost">Download CV</a>
+          <a href="assets/matteo-brambilla-cv.pdf" download class="btn btn-ghost">Download CV</a>
           <a href="#portfolio" class="btn btn-ghost">Portfolio</a>
           <a href="https://www.linkedin.com/in/matteo-brambilla-77528b255/" class="btn btn-ghost">LinkedIn</a>
         </div>
@@ -223,7 +219,6 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
     </div>
   </div>
 
-  <!-- 01 — CHI SONO -->
   <div class="wrap">
     <section class="about reveal">
       <p class="sec-label"><span class="n">01</span> / About</p>
@@ -237,7 +232,6 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
     </section>
   </div>
 
-  <!-- 02 — PORTFOLIO -->
   <div class="wrap">
     <section id="portfolio" class="reveal">
       <p class="sec-label"><span class="n">02</span> / Portfolio</p>
@@ -289,7 +283,6 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
     </section>
   </div>
 
-  <!-- 03 — STUDI -->
   <div class="wrap">
     <section class="reveal">
       <p class="sec-label"><span class="n">03</span> / Education</p>
@@ -302,7 +295,6 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
     </section>
   </div>
 
-  <!-- 04 — CONTATTI -->
   <div class="wrap">
     <section class="reveal">
       <p class="sec-label"><span class="n">04</span> / Contact</p>
@@ -311,7 +303,7 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
           <a href="mailto:matteob.0375@gmail.com" class="btn btn-primary btn-sm">matteob.0375@gmail.com</a>
           <a href="tel:+393461819020" class="btn btn-primary btn-sm">+39 346 181 9020</a>
           <a href="https://www.linkedin.com/in/matteo-brambilla-77528b255/" class="btn btn-ghost btn-sm">LinkedIn</a>
-          <a href="one-pager.html" class="btn btn-ghost btn-sm">CV PDF</a>
+          <a href="assets/matteo-brambilla-cv.pdf" download class="btn btn-ghost btn-sm">CV PDF</a>
         </div>
         <div class="lang">IT native · ES fluent · EN working</div>
       </div>
@@ -325,18 +317,13 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
   </footer>
 
   <script>
-// Rivela le sezioni mentre scorri (fade-up). Niente librerie.
 (function () {
   var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var els = document.querySelectorAll('.reveal');
-
-  // Se l'utente preferisce meno movimento o il browser non supporta l'observer,
-  // mostra subito tutto (nessun contenuto resta nascosto).
   if (prefersReduced || !('IntersectionObserver' in window)) {
     els.forEach(function (el) { el.classList.add('in'); });
     return;
   }
-
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
       if (en.isIntersecting) {
@@ -345,10 +332,8 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
       }
     });
   }, { threshold: 0.12 });
-
   els.forEach(function (el) { io.observe(el); });
 })();
-
 </script>
 </body>
 </html>
