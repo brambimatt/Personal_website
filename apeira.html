@@ -173,6 +173,7 @@ svg.italy{ position:absolute; inset:0; width:100%; height:100%; overflow:visible
 .stop-city{ font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
 .stop-city b{ color:var(--ink); font-weight:500; }
 .stop-photos{ display:flex; gap:6px; margin-bottom:12px; }
+.stop-photos.two .ph{ aspect-ratio:3 / 4; }
 .ph{ position:relative; flex:1; aspect-ratio:16/10; border-radius:10px; overflow:hidden; background:linear-gradient(135deg,#eeece4 0%,#e3e2dc 100%); }
 .ph::after{ content:attr(data-label); position:absolute; inset:0; display:grid; place-items:center; text-align:center; padding:6px; font-family:var(--font-mono); font-size:10.5px; letter-spacing:.04em; color:var(--muted); }
 .ph img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
@@ -339,7 +340,7 @@ footer a{ color:var(--ink); text-decoration:none; }
 
         <article class="stop card" data-key="Roma" data-x="325.7" data-y="398.1">
           <p class="stop-city"><b>04</b> · Roma</p>
-          <div class="stop-photos">
+          <div class="stop-photos two">
             <span class="ph" data-label="Roma"><img src="assets/img/cities/roma-1.jpg" alt="Hackathon in Rome — builders at laptops" loading="lazy" onerror="this.remove()"></span>
             <span class="ph" data-label="Roma"><img src="assets/img/cities/roma-2.jpg" alt="Hackathon in Rome — robotic-arm build" loading="lazy" onerror="this.remove()"></span>
           </div>
