@@ -493,10 +493,10 @@ footer a{ color:var(--ink); text-decoration:none; }
     setPos('Roma',   leftX, colL + 12 + H('Genova'), 'left');
     // Bologna: posizione custom nel buco a destra della mappa, sotto Milano e sopra Napoli
     var bolX = mx + mw + 10;
-    var bolY = my - 190;
+    var bolY = my - 270;
     var napX = Math.min(rightX + 60, sw - popW - 6);
     var catX = mx + mw + 18;
-    setPos('Bologna', bolX, bolY, 'right');
+    setPos('Bologna', bolX, bolY, 'top');
     setPos('Napoli',  napX, colR + 12 + H('Bologna'), 'right');
     setPos('Catania', catX, colR + H('Bologna') + H('Napoli') - 10, 'right');
     var ctrls = stageFull.querySelector('.tour-controls');
