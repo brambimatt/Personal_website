@@ -486,13 +486,13 @@ footer a{ color:var(--ink); text-decoration:none; }
     var rightX = (mx + mw) + Math.max(6, (sw - (mx + mw) - popW) / 2);
     var colR = -30, colL = my - 70;
     // sopra la mappa
-    setPos('Torino', cx - popW - 60, my - GAP - H('Torino'), 'top');
-    setPos('Milano', cx - 10,        my - GAP - H('Milano'), 'top');
+    setPos('Torino', cx - popW - 110, my - GAP - H('Torino'), 'top');
+    setPos('Milano', cx - 50,         my - GAP - H('Milano'), 'top');
     // colonna sinistra: Genova, Roma — alzate
     setPos('Genova', leftX, colL, 'left');
     setPos('Roma',   leftX, colL + 12 + H('Genova'), 'left');
-    // colonna destra: Bologna più a sinistra; Napoli più a destra; Catania sollevata
-    var bolX = rightX - 40;
+    // colonna destra: Bologna non deve toccare Roma (leftX + popW + gap)
+    var bolX = Math.max(leftX + popW + 30, rightX - 20);
     var napX = Math.min(rightX + 60, sw - popW - 6);
     var catX = mx + mw + 18;
     setPos('Bologna', bolX, colR, 'right');
