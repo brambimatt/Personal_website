@@ -496,7 +496,7 @@ footer a{ color:var(--ink); text-decoration:none; }
     var bolY = my - 270;
     var napX = Math.min(rightX + 60, sw - popW - 6);
     var catX = mx + mw + 18;
-    setPos('Bologna', bolX, bolY, 'top');
+    setPos('Bologna', bolX, bolY, 'bottom-left');
     setPos('Napoli',  napX, colR + 12 + H('Bologna'), 'right');
     setPos('Catania', catX, colR + H('Bologna') + H('Napoli') - 10, 'right');
     var ctrls = stageFull.querySelector('.tour-controls');
@@ -513,7 +513,8 @@ footer a{ color:var(--ink); text-decoration:none; }
       var pop = popEls[c.key];
       if (!pop || !pop.classList.contains('in')) return;
       var x = pop.offsetLeft, y = pop.offsetTop, w = pop.offsetWidth, h = pop.offsetHeight, ex, ey;
-      if (pop._zone === 'top') { ex = x + w / 2; ey = y + h; }
+      if (pop._zone === 'bottom-left') { ex = x; ey = y + h; }
+      else if (pop._zone === 'top') { ex = x + w / 2; ey = y + h; }
       else if (pop._zone === 'bottom') { ex = x + w / 2; ey = y; }
       else if (pop._zone === 'left') { ex = x + w; ey = y + h / 2; }
       else { ex = x; ey = y + h / 2; }
