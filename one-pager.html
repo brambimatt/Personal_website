@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matteo Brambilla — One Pager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0B0B0B;
+    --body: #2C2C2C;
+    --muted: #6B6B6B;
+    --border: #D8D7D3;
+    --font: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html, body {
+    font-family: var(--font);
+    color: var(--body);
+    background: #fff;
+    font-size: 13px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 48px 52px;
+  }
+
+  /* --- Header --- */
+  .header { margin-bottom: 26px; }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -.02em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .header .title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 6px;
+  }
+  .header .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .header .tagline {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* --- Divider --- */
+  hr { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+
+  /* --- Section --- */
+  .section { margin-bottom: 20px; }
+  .section-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .10em;
+    color: var(--ink);
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  /* --- Entry --- */
+  .entry { margin-bottom: 14px; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+  .entry-name {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 12.5px;
+  }
+  .entry-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  ul { padding-left: 14px; }
+  ul li { margin-bottom: 4px; color: var(--body); font-size: 12.5px; }
+  ul li::marker { color: var(--muted); }
+
+  strong { font-weight: 600; color: var(--ink); }
+
+  /* --- How I work / What I'm looking for --- */
+  .prose { font-size: 12.5px; color: var(--body); }
+  .prose em { font-style: italic; }
+
+  /* --- Two-col bottom --- */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  /* --- Languages --- */
+  .langs { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+  /* --- Print --- */
+  @media print {
+    .page { padding: 32px 40px; }
+    html, body { font-size: 12px; }
+    @page { margin: 0; size: A4; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Matteo Brambilla</h1>
+    <div class="title">Chief of Staff / Founder Associate</div>
+    <div class="meta">22, Milan. Open to relocate, anywhere I can build at scale. matteobrambilla@moonstone.fund</div>
+    <div class="tagline">First startup-side, then VC to learn how to raise, now back to the builder side.</div>
+  </div>
+
+  <hr>
+
+  <!-- Moonstone -->
+  <div class="section">
+    <div class="section-title">Today · Moonstone, Chief of Staff (VC, Pre-seed &amp; Seed, Deeptech, Climate, Health)</div>
+    <ul>
+      <li><strong>Built and scaled the fund's internal portfolio platform:</strong> 75 portfolio companies tracked, 100+ different reports, single source of truth for the 8-person team and all the partners.</li>
+      <li><strong>Owned the full journey end-to-end:</strong> market analysis, problem framing, product, customer iteration, first commercial setup.</li>
+      <li><strong>Deal flow &amp; advisory:</strong> structured screening of incoming deals; informal advisory to early-stage founders on fundraising and pitch.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- Apeira -->
+  <div class="section">
+    <div class="section-title">Apeira</div>
+    <ul>
+      <li>Launched Milan's first international hacker house, growing the project from a weekly hackerspace into a national format over 1 year.</li>
+      <li>~20 events, ~800 participants, international sponsors (incl. Bending Spoons); national tour across 6 cities / 7 dates with international speakers (Alberto Sangiovanni Vincentelli).</li>
+      <li>Owner of event ops, partnerships, and founder selection.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- Consulting -->
+  <div class="section">
+    <div class="section-title">Consulting (Ongoing, NDA)</div>
+    <ul>
+      <li>5-month end-to-end B2B market discovery project: market assessment and pre-selling to support capital allocation decisions, with output guiding ~€10M in investment decisions.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- Previous experience & Education -->
+  <div class="section">
+    <div class="section-title">Previous Experience &amp; Education</div>
+    <ul>
+      <li>2 years operational in early-stage environments (4–6 person teams): data analysis, business modeling, pricing, procedures; structured workflows across 4 standardised tracking lines.</li>
+      <li>1 year at <em>Universidad de Cantabria</em> (Spain) → fluent Spanish. BA Economics &amp; Business, <em>University of Milan-Bicocca</em>.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- How I work + What I'm looking for -->
+  <div class="two-col">
+    <div class="section">
+      <div class="section-title">How I Work</div>
+      <p class="prose">Organised, execution-oriented, comfortable in ambiguity. I take messy situations, break them down, turn them into a clear roadmap. I work best where structure still has to be built.</p>
+    </div>
+    <div class="section">
+      <div class="section-title">What I'm Looking For</div>
+      <p class="prose">Where I can work alongside the CEO and grow cross-functionally. Deliberately aiming for a junior role: I'd rather <em>over-deliver</em> from the bottom than negotiate an inflated title. Starting from the bottom, with maximum ambition, always aiming higher.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Languages -->
+  <div class="section">
+    <div class="section-title">Languages</div>
+    <div class="langs">Italian (native), Spanish (fluent, 1 year in Spain), English (working proficiency)</div>
+  </div>
+
+</div>
+</body>
+</html>
