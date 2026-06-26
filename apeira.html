@@ -297,7 +297,7 @@ footer a{ color:var(--ink); text-decoration:none; }
         </div>
       </div>
       <div class="tour-controls">
-        <button class="btn btn-ghost btn-sm" id="skipTour" type="button">Skip ⏭</button>
+        <button class="btn btn-ghost btn-sm" id="skipTour" type="button">Skip animation</button>
         <button class="btn btn-ghost btn-sm" id="replayTour" type="button">↻ Replay tour</button>
       </div>
 
@@ -487,11 +487,11 @@ footer a{ color:var(--ink); text-decoration:none; }
     setPos('Milano', cx - 14, my - GAP - H('Milano'), 'top');
     // colonna sinistra (sfalsata): Genova, Roma — più in basso così Genova non parte dall'alto
     setPos('Genova', leftX + 18, colL, 'left');
-    setPos('Roma',   leftX - 18, colL + 18 + H('Genova'), 'left');
+    setPos('Roma',   mx - 40 - popW, colL + 18 + H('Genova'), 'left');   // più vicino alla mappa
     // colonna destra (sfalsata): Bologna, Napoli, Catania (Catania sotto Napoli)
     setPos('Bologna', rightX - 26, colR, 'right');
     setPos('Napoli',  rightX + 6, colR + 18 + H('Bologna'), 'right');
-    setPos('Catania', rightX - 14, colR + 36 + H('Bologna') + H('Napoli'), 'right');
+    setPos('Catania', mx + mw + 40, colR + 36 + H('Bologna') + H('Napoli'), 'right');   // più vicino alla mappa
     var maxB = my + mh;
     cities.forEach(function (c) { var p = popEls[c.key]; maxB = Math.max(maxB, p.offsetTop + p.offsetHeight); });
     stageFull.style.height = (maxB + 24) + 'px';
