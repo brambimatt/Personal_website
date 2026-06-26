@@ -105,22 +105,14 @@ a{ color:inherit; }
 .bullet-list{ list-style:disc; padding-left:1.2em; display:flex; flex-direction:column; gap:10px; }
 .bullet-list li{ font-size:16.5px; color:var(--body); }
 
-/* foto hero */
-.page-hero-figure{
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-}
-.page-hero-figure img{
-  width:100%;
-  max-width:340px;
-  height:auto;
-  border-radius:18px;
+/* foto hero — identica alla pagina principale */
+.figure{ position:relative; display:flex; justify-content:center; align-items:center; min-height:380px; }
+.figure .photo{
+  display:block; width:86%; max-width:310px; height:auto;
   filter:drop-shadow(0 14px 26px rgba(0,0,0,.18));
   transition:transform .45s ease, filter .45s ease;
-  object-fit:cover;
 }
-.page-hero-figure img:hover{
+.figure .photo:hover{
   transform:translateY(-5px);
   filter:drop-shadow(0 22px 34px rgba(0,0,0,.22));
 }
@@ -180,8 +172,7 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
 @media (max-width:860px){
   .wrap{ padding:0 20px; }
   .page-hero{ grid-template-columns:1fr; gap:32px; padding:48px 0 32px; }
-  .page-hero-figure{ order:-1; }
-  .page-hero-figure img{ max-width:260px; }
+  .figure{ order:-1; min-height:260px; }
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -220,10 +211,9 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
           <li>Conducted startup scouting and deal flow pipeline</li>
         </ul>
       </div>
-      <div class="page-hero-figure">
-        <img src="assets/img/foto matteo.jpg"
+      <div class="figure">
+        <img class="photo" src="assets/img/foto matteo.jpg"
              alt="Matteo Brambilla — Moonstone"
-             width="340" height="440"
              loading="eager" decoding="async">
       </div>
     </div>
