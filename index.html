@@ -152,6 +152,20 @@ section{ padding:34px 0; }
 .proj .pmetric{ font-family:var(--font-mono); font-weight:500; color:var(--ink); font-size:13.5px; padding-top:14px; border-top:1px solid var(--border); }
 .proj .plinks{ margin-top:16px; }
 
+/* portfolio come lista sintetica (stile CV) */
+.exp-list{ list-style:none; }
+.exp-list li{ position:relative; padding:18px 0 18px 28px; border-bottom:1px solid var(--border); }
+.exp-list li:last-child{ border-bottom:none; }
+.exp-list li::before{ content:"▹"; position:absolute; left:2px; top:18px; color:var(--ink); font-family:var(--font-mono); }
+.exp-head{ display:flex; align-items:baseline; flex-wrap:wrap; gap:10px; }
+.exp-title{ font-family:var(--font-display); font-weight:600; font-size:1.15rem; color:var(--ink); }
+.exp-meta{ color:var(--muted); font-size:13.5px; }
+.exp-desc{ color:var(--body); font-size:15px; margin-top:4px; }
+.exp-foot{ display:flex; align-items:baseline; flex-wrap:wrap; gap:14px; margin-top:8px; }
+.exp-metric{ font-family:var(--font-mono); font-weight:500; color:var(--ink); font-size:13px; }
+.exp-link{ font-family:var(--font-mono); font-size:13px; text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:1px; }
+.exp-link:hover{ opacity:.7; }
+
 /* studi (riga sola, bianca) */
 .studi{ display:flex; align-items:baseline; gap:14px; font-size:15.5px; }
 .studi .role{ font-family:var(--font-display); font-weight:600; color:var(--ink); }
@@ -238,51 +252,55 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
   <div class="wrap">
     <section id="portfolio" class="reveal">
       <p class="sec-label"><span class="n">02</span> / Portfolio</p>
-      <div class="grid">
+      <ul class="exp-list">
 
-        <div class="halo-wrap">
-          <span class="halo-orbit"></span>
-          <div class="card proj">
-            <div class="ptitle">Apeira</div>
-            <div class="pmeta">Milan's first international hacker house</div>
-            <div class="pdesc">Launched the hacker house, organized dozens of tech events: hackathons, hackerspaces, lectures, and more, handling all logistics and curation.</div>
-            <div class="pmetric">~20 events · ~800 people · 6 cities</div>
-            <div class="plinks"><a href="apeira.html" class="btn btn-primary btn-sm">Dedicated page →</a></div>
+        <li>
+          <div class="exp-head">
+            <span class="exp-title">Apeira</span>
+            <span class="exp-meta">Milan's first international hacker house</span>
           </div>
-        </div>
-
-        <div class="halo-wrap">
-          <span class="halo-orbit"></span>
-          <div class="card proj">
-            <div class="ptitle">Moonstone</div>
-            <div class="pmeta">VC · Deeptech, Climate &amp; Health</div>
-            <div class="pdesc">Portfolio platform that is single source of truth end-to-end for team and fund partners; deal flow, hiring and team management.</div>
-            <div class="pmetric">75 companies tracked · 100+ reports</div>
-            <div class="plinks"><a href="moonstone.html" class="btn btn-primary btn-sm">Case study →</a></div>
+          <p class="exp-desc">Launched the hacker house, organized dozens of tech events: hackathons, hackerspaces, lectures, and more, handling all logistics and curation.</p>
+          <div class="exp-foot">
+            <span class="exp-metric">~20 events · ~800 people · 6 cities</span>
+            <a href="apeira.html" class="exp-link">Dedicated page →</a>
           </div>
-        </div>
+        </li>
 
-        <div class="halo-wrap">
-          <span class="halo-orbit"></span>
-          <div class="card proj">
-            <div class="ptitle">Early-stage operations</div>
-            <div class="pmeta">Early-stage startup · team of 4-6</div>
-            <div class="pdesc">Data analysis, business modeling, pricing and operational processes: from the business model to daily workflows.</div>
-            <div class="pmetric">2 years · 4 standardized tracking lines</div>
+        <li>
+          <div class="exp-head">
+            <span class="exp-title">Moonstone</span>
+            <span class="exp-meta">VC · Deeptech, Climate &amp; Health</span>
           </div>
-        </div>
-
-        <div class="halo-wrap">
-          <span class="halo-orbit"></span>
-          <div class="card proj">
-            <div class="ptitle">Consulting</div>
-            <div class="pmeta">Market assessment B2B · NDA</div>
-            <div class="pdesc">5-month end-to-end market discovery project: market assessment and pre-selling to support capital allocation decisions.</div>
-            <div class="pmetric">Output guiding ~€10M in investment decisions</div>
+          <p class="exp-desc">Portfolio platform that is single source of truth end-to-end for team and fund partners; deal flow, hiring and team management.</p>
+          <div class="exp-foot">
+            <span class="exp-metric">75 companies tracked · 100+ reports</span>
+            <a href="moonstone.html" class="exp-link">Case study →</a>
           </div>
-        </div>
+        </li>
 
-      </div>
+        <li>
+          <div class="exp-head">
+            <span class="exp-title">Early-stage operations</span>
+            <span class="exp-meta">Early-stage startup · team of 4-6</span>
+          </div>
+          <p class="exp-desc">Data analysis, business modeling, pricing and operational processes: from the business model to daily workflows.</p>
+          <div class="exp-foot">
+            <span class="exp-metric">2 years · 4 standardized tracking lines</span>
+          </div>
+        </li>
+
+        <li>
+          <div class="exp-head">
+            <span class="exp-title">Consulting</span>
+            <span class="exp-meta">Market assessment B2B · NDA</span>
+          </div>
+          <p class="exp-desc">5-month end-to-end market discovery project: market assessment and pre-selling to support capital allocation decisions.</p>
+          <div class="exp-foot">
+            <span class="exp-metric">Output guiding ~€10M in investment decisions</span>
+          </div>
+        </li>
+
+      </ul>
     </section>
   </div>
 
