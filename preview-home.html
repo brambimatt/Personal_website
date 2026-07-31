@@ -157,10 +157,7 @@ section{ padding:34px 0; }
 .port-list{
   list-style:none;
   position:relative;
-  padding-left:34px;
-  /* linea verticale continua che lega tutti i bullet */
-  border-left:1px solid var(--border);
-  margin-left:4px;
+  padding-left:26px;
 }
 .port-item{
   position:relative;
@@ -170,19 +167,18 @@ section{ padding:34px 0; }
 .port-item:first-child{ padding-top:4px; }
 .port-item:last-child{ border-bottom:0; padding-bottom:4px; }
 
-/* marker (il "bullet") agganciato al rail */
+/* marker (il "bullet") a inizio riga */
 .port-item::before{
   content:"";
   position:absolute;
-  left:-40px;                 /* si allinea sopra il border-left della lista */
-  top:34px;
-  width:9px; height:9px;
+  left:-22px;
+  top:36px;
+  width:8px; height:8px;
   background:var(--ink);
   border-radius:50%;
-  box-shadow:0 0 0 4px var(--bg);   /* stacca il pallino dalla linea */
   transition:transform .25s ease, box-shadow .25s ease;
 }
-.port-item:first-child::before{ top:12px; }
+.port-item:first-child::before{ top:14px; }
 .port-item:hover::before{
   transform:scale(1.25);
   box-shadow:0 0 0 4px var(--bg), 0 0 14px 2px rgba(12,12,12,.35);
@@ -226,8 +222,7 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
   .wrap{ padding:0 20px; }
   .contact{ flex-direction:column; align-items:flex-start; }
   .studi{ flex-direction:column; gap:4px; }
-  .port-list{ padding-left:26px; }
-  .port-item::before{ left:-31px; }
+  .port-list{ padding-left:22px; }
 }
 
 /* accessibilità: rispetta chi preferisce meno movimento */
@@ -300,7 +295,6 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
         <li class="port-item">
           <div class="port-head">
             <span class="port-title">Apeira</span>
-            <span class="port-meta">Milan's first international hacker house</span>
           </div>
           <p class="port-desc">Launched the hacker house, organized dozens of tech events: hackathons, hackerspaces, lectures, and more, handling all logistics and curation.</p>
           <div class="port-foot">
@@ -323,23 +317,21 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
 
         <li class="port-item">
           <div class="port-head">
-            <span class="port-title">Early-stage operations</span>
-            <span class="port-meta">Early-stage startup · team of 4-6</span>
+            <span class="port-title">Consulting</span>
           </div>
-          <p class="port-desc">Data analysis, business modeling, pricing and operational processes: from the business model to daily workflows.</p>
+          <p class="port-desc">5-month end-to-end market discovery project: market assessment and pre-selling to support capital allocation decisions.</p>
           <div class="port-foot">
-            <span class="port-metric">2 years · 4 standardized tracking lines</span>
+            <span class="port-metric">Output guiding ~€10M in investment decisions</span>
           </div>
         </li>
 
         <li class="port-item">
           <div class="port-head">
-            <span class="port-title">Consulting</span>
-            <span class="port-meta">Market assessment B2B · NDA</span>
+            <span class="port-title">Early-stage operations</span>
           </div>
-          <p class="port-desc">5-month end-to-end market discovery project: market assessment and pre-selling to support capital allocation decisions.</p>
+          <p class="port-desc">Data analysis, business modeling, pricing and operational processes: from the business model to daily workflows.</p>
           <div class="port-foot">
-            <span class="port-metric">Output guiding ~€10M in investment decisions</span>
+            <span class="port-metric">2 years · 4 standardized tracking lines</span>
           </div>
         </li>
 
