@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Impedisce l'indicizzazione: la pagina è accessibile solo tramite link diretto -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<title>[ANTEPRIMA] Matteo Brambilla — bullet layout</title>
+<meta name="description" content="Anteprima di lavoro: nuova sezione portfolio a bullet point. Non è la home pubblica.">
+
+<!-- Caratteri (Clash Display + General Sans da Fontshare, JetBrains Mono da Google) -->
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   Matteo Brambilla — portfolio / CV
+   Stile monocromo su bianco, griglia a puntini, linee-neon.
+   (CSS originale dell'anteprima, ripulito e organizzato.)
+   ========================================================= */
+
+@property --bd{ syntax:'<angle>'; inherits:false; initial-value:0deg; }
+
+:root{
+  --bg:#FFFFFF;
+  --card:#FFFFFF;
+  --ink:#0B0B0B;
+  --body:#2C2C2C;
+  --muted:#7C7C7C;
+  --border:#E6E5E1;
+  --shadow:0 1px 2px rgba(0,0,0,.05), 0 12px 34px rgba(0,0,0,.04);
+  --font-display:'Clash Display', sans-serif;
+  --font-body:'General Sans', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background-color:var(--bg);
+  background-image:radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px);
+  background-size:24px 24px;
+  color:var(--body); font-family:var(--font-body); -webkit-font-smoothing:antialiased; line-height:1.55;
+}
+a{ color:inherit; }
+
+/* ---- barra fissa in alto ---- */
+.topbar{
+  position:sticky; top:0; z-index:50;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:15px 32px; background:#fff; border-bottom:1px solid var(--border);
+  box-shadow:0 6px 20px rgba(0,0,0,.07);
+}
+.topbar .left{ display:flex; align-items:center; gap:12px; }
+.topbar .name{ font-family:var(--font-display); font-weight:600; font-size:16px; color:var(--ink); text-decoration:none; }
+.topbar nav{ display:flex; gap:10px; align-items:center; font-size:14px; }
+.topbar nav a{ position:relative; text-decoration:none; padding:7px 13px; border-radius:999px; color:var(--ink); --btn-line:#0B0B0B; --btn-glow:rgba(11,11,11,.5); }
+.topbar nav a::before, .topbar nav a::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); width:60%; height:2px; border-radius:2px; background:linear-gradient(90deg, transparent, var(--btn-line), transparent); opacity:0; pointer-events:none; transition:opacity .3s ease; filter:drop-shadow(0 0 5px var(--btn-glow)); }
+.topbar nav a::before{ top:3px; }
+.topbar nav a::after{ bottom:3px; }
+.topbar nav a:hover::before{ opacity:1; }
+.topbar nav a:hover::after{ opacity:.55; }
+.topbar nav .ghost{ border:1px solid var(--border); }
+.topbar nav .solid{ background:var(--ink); color:#fff; --btn-line:#FFFFFF; --btn-glow:rgba(255,255,255,.6); }
+
+.wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
+
+/* ---- banner anteprima (solo in questo file di lavoro) ---- */
+.preview-flag{
+  font-family:var(--font-mono); font-size:12px; letter-spacing:.04em;
+  text-align:center; padding:8px 16px; background:#0B0B0B; color:#fff;
+}
+
+/* ---- hero (bianco) ---- */
+.hero{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; padding:80px 0 70px; }
+.status{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:12px; color:var(--ink); border:1px solid var(--border); border-radius:999px; padding:6px 12px; margin-bottom:22px; }
+.status .d{ width:7px; height:7px; border-radius:50%; background:var(--ink); animation:pulse 2s infinite; }
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
+.eyebrow{ font-family:var(--font-mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); margin-bottom:18px; }
+h1{ font-family:var(--font-display); font-weight:700; font-size:clamp(3rem,7.5vw,6.2rem); line-height:.95; letter-spacing:-.02em; color:var(--ink); margin-bottom:24px; }
+.info{ font-size:16px; color:var(--ink); margin-bottom:16px; }
+.blurb{ font-size:17px; color:var(--muted); max-width:44ch; margin-bottom:32px; }
+.ctas{ display:flex; flex-wrap:wrap; gap:12px; }
+
+.btn{ position:relative; font-family:var(--font-body); font-size:15px; padding:13px 22px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; transition:all .18s; --btn-line:#0B0B0B; --btn-glow:rgba(11,11,11,.5); }
+.btn::before, .btn::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); width:68%; height:2px; border-radius:2px; background:linear-gradient(90deg, transparent, var(--btn-line), transparent); opacity:0; pointer-events:none; transition:opacity .3s ease; filter:drop-shadow(0 0 5px var(--btn-glow)); }
+.btn::before{ top:4px; }
+.btn::after{ bottom:4px; }
+.btn:hover::before{ opacity:1; }
+.btn:hover::after{ opacity:.55; }
+.btn-primary{ background:var(--ink); color:#fff; font-weight:500; --btn-line:#FFFFFF; --btn-glow:rgba(255,255,255,.6); }
+.btn-primary:hover{ background:#000; }
+.btn-ghost{ border:1px solid var(--border); color:var(--ink); }
+.btn-ghost:hover{ border-color:var(--ink); }
+.btn-sm{ font-size:13.5px; padding:9px 15px; }
+
+.figure{ position:relative; display:flex; justify-content:center; align-items:center; min-height:380px; }
+.figure .photo{
+  display:block; width:86%; max-width:310px; height:auto;
+  filter:drop-shadow(0 14px 26px rgba(0,0,0,.18));
+  transition:transform .45s ease, filter .45s ease;
+}
+.figure .photo:hover{
+  transform:translateY(-5px);
+  filter:drop-shadow(0 22px 34px rgba(0,0,0,.22));
+}
+
+/* ---- sezioni ---- */
+section{ padding:34px 0; }
+.sec-label{ font-family:var(--font-mono); font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
+.sec-label .n{ color:var(--ink); }
+
+/* ---- card base (bianca) ---- */
+.card{
+  position:relative; isolation:isolate;
+  background:var(--card); border:1px solid var(--border); border-radius:18px;
+  padding:30px; box-shadow:var(--shadow);
+}
+
+/* ---- alone che gira intorno alla scheda; all'hover si FISSA su tutto il bordo ---- */
+.halo-wrap{ position:relative; isolation:isolate; border-radius:20px; display:flex; }
+.halo-wrap > .card{ flex:1; min-width:0; }
+
+.halo-wrap .card{
+  border-color:#D5D4CE;
+  box-shadow:0 0 0 1px rgba(0,0,0,.04), 0 6px 16px rgba(0,0,0,.05);
+  transition:box-shadow .55s, border-color .55s;
+}
+.halo-wrap:hover .card{
+  border-color:#9A9994;
+  box-shadow:0 0 0 1.5px rgba(15,15,15,.5), 0 0 26px 3px rgba(12,12,12,.24), 0 8px 22px rgba(0,0,0,.10);
+}
+
+.halo-orbit{
+  position:absolute; inset:-5px; z-index:-1; border-radius:25px; pointer-events:none;
+  background:conic-gradient(from var(--bd), transparent 0deg, transparent 256deg, rgba(25,25,25,.34) 322deg, transparent 360deg);
+  filter:blur(15px); opacity:1;
+  animation:orbit 6.5s linear infinite;
+  transition:opacity .5s;
+}
+.halo-wrap:hover .halo-orbit{ opacity:0; animation-play-state:paused; }
+@keyframes orbit{ to{ --bd:360deg; } }
+
+/* about */
+.about h2{ font-family:var(--font-display); font-weight:600; font-size:clamp(1.4rem,3vw,1.95rem); line-height:1.2; color:var(--ink); margin-bottom:16px; letter-spacing:-.01em; }
+.about p{ color:var(--body); font-size:16.5px; }
+
+/* =========================================================
+   PORTFOLIO — nuova struttura a bullet point (unica lista)
+   Niente rettangoli separati: un solo blocco, righe con marker,
+   divisori sottili tra una voce e l'altra, "rail" verticale a sinistra.
+   ========================================================= */
+.port-list{
+  list-style:none;
+  position:relative;
+  padding-left:34px;
+  /* linea verticale continua che lega tutti i bullet */
+  border-left:1px solid var(--border);
+  margin-left:4px;
+}
+.port-item{
+  position:relative;
+  padding:26px 0;
+  border-bottom:1px solid var(--border);
+}
+.port-item:first-child{ padding-top:4px; }
+.port-item:last-child{ border-bottom:0; padding-bottom:4px; }
+
+/* marker (il "bullet") agganciato al rail */
+.port-item::before{
+  content:"";
+  position:absolute;
+  left:-40px;                 /* si allinea sopra il border-left della lista */
+  top:34px;
+  width:9px; height:9px;
+  background:var(--ink);
+  border-radius:50%;
+  box-shadow:0 0 0 4px var(--bg);   /* stacca il pallino dalla linea */
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.port-item:first-child::before{ top:12px; }
+.port-item:hover::before{
+  transform:scale(1.25);
+  box-shadow:0 0 0 4px var(--bg), 0 0 14px 2px rgba(12,12,12,.35);
+}
+
+/* titolo + meta sulla stessa riga */
+.port-head{ display:flex; align-items:baseline; flex-wrap:wrap; gap:6px 12px; }
+.port-title{ font-family:var(--font-display); font-weight:600; font-size:1.3rem; color:var(--ink); letter-spacing:-.01em; }
+.port-meta{ color:var(--muted); font-size:13.5px; }
+
+.port-desc{ color:var(--body); font-size:15.5px; margin:10px 0 12px; max-width:70ch; }
+
+/* metrica (mono) + eventuale link sulla stessa riga */
+.port-foot{ display:flex; align-items:center; flex-wrap:wrap; gap:10px 18px; }
+.port-metric{ font-family:var(--font-mono); font-weight:500; color:var(--ink); font-size:13.5px; }
+.port-link{
+  font-family:var(--font-mono); font-size:13px; color:var(--ink);
+  text-decoration:none; border-bottom:1px solid var(--ink);
+  padding-bottom:1px; transition:opacity .2s ease;
+}
+.port-link:hover{ opacity:.6; }
+
+/* studi (riga sola, bianca) */
+.studi{ display:flex; align-items:baseline; gap:14px; font-size:15.5px; }
+.studi .role{ font-family:var(--font-display); font-weight:600; color:var(--ink); }
+.studi .det{ color:var(--muted); }
+
+/* contatti (bianca) */
+.contact{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+.contact .lang{ font-family:var(--font-mono); color:var(--muted); font-size:13px; }
+
+footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:center; font-family:var(--font-mono); }
+
+/* comparsa allo scroll */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.in{ opacity:1; transform:none; }
+
+@media (max-width:860px){
+  .hero{ grid-template-columns:1fr; gap:30px; padding:48px 0 40px; }
+  .hero .figure{ min-height:300px; }
+  .wrap{ padding:0 20px; }
+  .contact{ flex-direction:column; align-items:flex-start; }
+  .studi{ flex-direction:column; gap:4px; }
+  .port-list{ padding-left:26px; }
+  .port-item::before{ left:-31px; }
+}
+
+/* accessibilità: rispetta chi preferisce meno movimento */
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  .halo-orbit{ animation:none; }
+  .status .d{ animation:none; }
+  .reveal{ opacity:1; transform:none; transition:none; }
+  *{ transition:none !important; }
+}
+
+</style>
+
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+  <div class="preview-flag">ANTEPRIMA DI LAVORO · bullet layout · la home pubblica (index.html) non è modificata</div>
+
+  <header class="topbar">
+    <div class="left">
+      <a class="name" href="/">Matteo Brambilla</a>
+    </div>
+    <nav>
+      <a href="#portfolio" class="ghost">Portfolio</a>
+      <a href="https://www.linkedin.com/in/matteo-brambilla-77528b255/" class="ghost">LinkedIn</a>
+      <a href="assets/Matteo Brambilla CV.pdf" download="Matteo Brambilla CV.pdf" class="solid">CV</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero reveal">
+      <div>
+        <h1>Matteo<br>Brambilla</h1>
+        <p class="info">23 · Milan</p>
+        <p class="blurb">three years in: early-stage operator, then VC, now back to building.</p>
+        <div class="ctas">
+          <a href="assets/Matteo Brambilla CV.pdf" download="Matteo Brambilla CV.pdf" class="btn btn-ghost">Download CV</a>
+          <a href="#portfolio" class="btn btn-ghost">Portfolio</a>
+          <a href="https://www.linkedin.com/in/matteo-brambilla-77528b255/" class="btn btn-ghost">LinkedIn</a>
+        </div>
+      </div>
+      <div class="figure">
+        <img class="photo" src="assets/img/matteo_white_background.png"
+             alt="Matteo Brambilla at his computer" width="259" height="355"
+             loading="eager" decoding="async">
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="about reveal">
+      <p class="sec-label"><span class="n">01</span> / About</p>
+      <div class="halo-wrap">
+        <span class="halo-orbit"></span>
+        <div class="card">
+          <h2>I like finding clarity and structure in uncertain situations.</h2>
+          <p>Launched the first hacker house in Italy and organized dozens of tech events. Worked on data analysis and business modeling in early-stage startups. Moved into VC to understand how investors evaluate companies, serving as Chief of Staff and in-house tech.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section id="portfolio" class="reveal">
+      <p class="sec-label"><span class="n">02</span> / Portfolio</p>
+
+      <ul class="port-list">
+
+        <li class="port-item">
+          <div class="port-head">
+            <span class="port-title">Apeira</span>
+            <span class="port-meta">Milan's first international hacker house</span>
+          </div>
+          <p class="port-desc">Launched the hacker house, organized dozens of tech events: hackathons, hackerspaces, lectures, and more, handling all logistics and curation.</p>
+          <div class="port-foot">
+            <span class="port-metric">~20 events · ~800 people · 6 cities</span>
+            <a href="apeira.html" class="port-link">Dedicated page →</a>
+          </div>
+        </li>
+
+        <li class="port-item">
+          <div class="port-head">
+            <span class="port-title">Moonstone</span>
+            <span class="port-meta">VC · Deeptech, Climate &amp; Health</span>
+          </div>
+          <p class="port-desc">Portfolio platform that is single source of truth end-to-end for team and fund partners; deal flow, hiring and team management.</p>
+          <div class="port-foot">
+            <span class="port-metric">75 companies tracked · 100+ reports</span>
+            <a href="moonstone.html" class="port-link">Case study →</a>
+          </div>
+        </li>
+
+        <li class="port-item">
+          <div class="port-head">
+            <span class="port-title">Early-stage operations</span>
+            <span class="port-meta">Early-stage startup · team of 4-6</span>
+          </div>
+          <p class="port-desc">Data analysis, business modeling, pricing and operational processes: from the business model to daily workflows.</p>
+          <div class="port-foot">
+            <span class="port-metric">2 years · 4 standardized tracking lines</span>
+          </div>
+        </li>
+
+        <li class="port-item">
+          <div class="port-head">
+            <span class="port-title">Consulting</span>
+            <span class="port-meta">Market assessment B2B · NDA</span>
+          </div>
+          <p class="port-desc">5-month end-to-end market discovery project: market assessment and pre-selling to support capital allocation decisions.</p>
+          <div class="port-foot">
+            <span class="port-metric">Output guiding ~€10M in investment decisions</span>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="reveal">
+      <p class="sec-label"><span class="n">03</span> / Education</p>
+      <div class="card">
+        <div class="studi">
+          <span class="role">BA Economics &amp; Business</span>
+          <span class="det">University of Milan-Bicocca · one year at Universidad de Cantabria (Spain) · fluent Spanish</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="reveal">
+      <p class="sec-label"><span class="n">04</span> / Contact</p>
+      <div class="card contact">
+        <div class="ctas">
+          <a href="mailto:matteob.0375@gmail.com" class="btn btn-primary btn-sm">matteob.0375@gmail.com</a>
+          <a href="tel:+393461819020" class="btn btn-primary btn-sm">+39 346 181 9020</a>
+          <a href="https://www.linkedin.com/in/matteo-brambilla-77528b255/" class="btn btn-ghost btn-sm">LinkedIn</a>
+          <a href="assets/Matteo Brambilla CV.pdf" download="Matteo Brambilla CV.pdf" class="btn btn-ghost btn-sm">CV PDF</a>
+        </div>
+        <div class="lang">IT native · ES fluent · EN working</div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    © 2026 Matteo Brambilla, Milan
+    <br><br>
+    <span style="font-size:10px;opacity:.55;">This site uses no cookies and collects no personal data. Any information voluntarily shared via the contact details on this page is processed solely to respond to your enquiry, in accordance with EU Regulation 2016/679 (GDPR).</span>
+  </footer>
+
+  <script>
+(function () {
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
