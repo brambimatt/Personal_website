@@ -27,15 +27,15 @@ body{
   background:var(--bg);
   color:var(--ink);
   font-family:var(--serif);
-  font-size:clamp(1.05rem, 1rem + 0.35vw, 1.3rem);
-  line-height:1.85;
+  font-size:clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
 
 .note{
-  max-width:760px;
-  padding:72px 28px 110px clamp(28px, 11vw, 200px);
+  max-width:720px;
+  padding:72px 28px 110px clamp(28px, 10vw, 180px);
 }
 
 /* piccola nota-anteprima, discreta */
@@ -45,18 +45,26 @@ body{
   margin-bottom:44px;
 }
 
-p{ margin-bottom:1.5em; max-width:60ch; }
+p{ margin-bottom:1.35em; max-width:58ch; }
 
-/* gruppi con introduzione + voci indentate (i "sub-bullet" testuali) */
-.group{ margin-bottom:1.5em; }
-.group > .lead{ margin-bottom:.35em; }
-.items{ padding-left:2.4em; }
-.items .item{ margin-bottom:.28em; max-width:58ch; }
+/* introduzione di sezione (es. "what i've built:") */
+.lead{ margin:2.2em 0 1em; }
+
+/* voci-progetto: nome in evidenza, descrizione, metrica separata */
+.items{ padding-left:1.9em; }
+.entry{ margin-bottom:1.4em; max-width:58ch; }
+.entry:last-child{ margin-bottom:0; }
+.entry .name{ font-weight:500; }
+.entry .desc{ display:block; }
+.entry .tail{ display:block; color:var(--muted); margin-top:.15em; }
+.entry .tail a{ color:var(--ink); }
+
+/* riga semplice (studi, lingue) */
+.line{ padding-left:1.9em; margin-bottom:.5em; max-width:58ch; }
+.line:last-of-type{ margin-bottom:0; }
 
 /* firma e orario */
-.sign{ margin-top:2.2em; line-height:1.5; }
-.sign .who{ }
-.sign .where{ }
+.sign{ margin-top:2.4em; line-height:1.5; }
 .clock{ color:var(--muted); }
 
 /* link */
@@ -88,29 +96,36 @@ a:hover{ opacity:.55; }
 
     <p>hey, i'm matteo.</p>
 
-    <p>i'm 23 and based in milan. three years in: i started as an early-stage operator,
-    moved into venture capital to understand how investors evaluate companies, and now
-    i'm back to building. i like finding clarity and structure in uncertain situations.</p>
+    <p>i'm 23 and based in milan. three years in: i started as an early-stage
+    operator, moved into venture capital to understand how investors evaluate
+    companies, and now i'm back to building. i like finding clarity and structure
+    in uncertain situations.</p>
 
-    <div class="group">
-      <div class="lead">what i've built:</div>
-      <div class="items">
-        <div class="item">apeira — italy's first international hacker house. launched it and ran dozens of tech events: hackathons, hackerspaces, lectures. ~20 events · ~800 people · 6 cities. <span class="arrow">→ <a href="apeira.html">dedicated page</a></span></div>
-        <div class="item">moonstone — chief of staff at a deeptech, climate &amp; health VC. built the portfolio platform: a single source of truth for team and partners, end-to-end. 75 companies · 100+ reports. <span class="arrow">→ <a href="moonstone.html">case study</a></span></div>
-        <div class="item">consulting — a 5-month, end-to-end market discovery project. the output guided ~€10m in investment decisions.</div>
-        <div class="item">early-stage operations — two years of data analysis, business modeling and pricing in a team of 4–6.</div>
+    <div class="lead">what i've built:</div>
+    <div class="items">
+      <div class="entry">
+        <span class="name">apeira</span> — italy's first international hacker house. launched it and ran dozens of tech events: hackathons, hackerspaces, lectures.
+        <span class="tail">~20 events · ~800 people · 6 cities · <a href="apeira.html">dedicated page →</a></span>
+      </div>
+      <div class="entry">
+        <span class="name">moonstone</span> — chief of staff at a deeptech, climate &amp; health VC. built the portfolio platform: a single source of truth for team and partners, end-to-end.
+        <span class="tail">75 companies tracked · 100+ reports · <a href="moonstone.html">case study →</a></span>
+      </div>
+      <div class="entry">
+        <span class="name">consulting</span> — a 5-month, end-to-end market discovery project.
+        <span class="tail">output guided ~€10m in investment decisions</span>
+      </div>
+      <div class="entry">
+        <span class="name">early-stage operations</span> — two years of data analysis, business modeling and pricing in a small team.
+        <span class="tail">team of 4–6 · 4 standardized tracking lines</span>
       </div>
     </div>
 
-    <div class="group">
-      <div class="lead">studies:</div>
-      <div class="items">
-        <div class="item">ba economics &amp; business at milan-bicocca, with a year at universidad de cantabria in spain.</div>
-        <div class="item">languages: italian (native), spanish (fluent), english (working).</div>
-      </div>
-    </div>
+    <div class="lead">studies:</div>
+    <div class="line">ba economics &amp; business at milan-bicocca, with a year at universidad de cantabria in spain.</div>
+    <div class="line">languages: italian (native), spanish (fluent), english (working).</div>
 
-    <p>always open to meeting people building cool stuff — feel free to reach out.</p>
+    <p style="margin-top:2.2em">always open to meeting people building cool stuff — feel free to reach out.</p>
 
     <div class="sign">
       <div class="who">matteo</div>
