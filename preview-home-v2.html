@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -50,14 +50,15 @@ p{ margin-bottom:1.35em; max-width:58ch; }
 /* introduzione di sezione (es. "what i've built:") */
 .lead{ margin:2.2em 0 1em; }
 
-/* voci-progetto: nome in evidenza, descrizione, metrica separata */
+/* voci-progetto: intestazione in grassetto su riga propria, poi corpo, poi metrica */
 .items{ padding-left:1.9em; }
-.entry{ margin-bottom:1.4em; max-width:58ch; }
+.entry{ margin-bottom:1.55em; max-width:58ch; line-height:1.5; }
 .entry:last-child{ margin-bottom:0; }
-.entry .name{ font-weight:500; }
-.entry .desc{ display:block; }
-.entry .tail{ display:block; color:var(--muted); margin-top:.15em; }
-.entry .tail a{ color:var(--ink); }
+.entry .head{ font-weight:600; }
+.entry .head .name{ }
+.entry .body{ margin-top:.12em; }
+.entry .meta{ margin-top:.12em; color:var(--muted); }
+.entry .meta a{ color:var(--ink); }
 
 /* riga semplice (studi, lingue) */
 .line{ padding-left:1.9em; margin-bottom:.5em; max-width:58ch; }
@@ -104,20 +105,24 @@ a:hover{ opacity:.55; }
     <div class="lead">what i've built:</div>
     <div class="items">
       <div class="entry">
-        <span class="name">apeira</span> — italy's first international hacker house. launched it and ran dozens of tech events: hackathons, hackerspaces, lectures.
-        <span class="tail">~20 events · ~800 people · 6 cities · <a href="apeira.html">dedicated page →</a></span>
+        <div class="head"><span class="name">apeira</span> — italy's first international hacker house</div>
+        <div class="body">launched it and ran dozens of tech events: hackathons, hackerspaces, lectures.</div>
+        <div class="meta">~20 events · ~800 people · 6 cities · <a href="apeira.html">dedicated page →</a></div>
       </div>
       <div class="entry">
-        <span class="name">moonstone</span> — chief of staff at a deeptech, climate &amp; health VC. built the portfolio platform: a single source of truth for team and partners, end-to-end.
-        <span class="tail">75 companies tracked · 100+ reports · <a href="moonstone.html">case study →</a></span>
+        <div class="head"><span class="name">moonstone</span> — chief of staff at a deeptech, climate &amp; health VC</div>
+        <div class="body">built the portfolio platform: a single source of truth for team and partners, end-to-end.</div>
+        <div class="meta">75 companies tracked · 100+ reports · <a href="moonstone.html">case study →</a></div>
       </div>
       <div class="entry">
-        <span class="name">consulting</span> — a 5-month, end-to-end market discovery project.
-        <span class="tail">output guided ~€10m in investment decisions</span>
+        <div class="head"><span class="name">consulting</span> — 5-month, end-to-end market discovery</div>
+        <div class="body">market assessment and pre-selling to support capital allocation decisions.</div>
+        <div class="meta">output guided ~€10m in investment decisions</div>
       </div>
       <div class="entry">
-        <span class="name">early-stage operations</span> — two years of data analysis, business modeling and pricing in a small team.
-        <span class="tail">team of 4–6 · 4 standardized tracking lines</span>
+        <div class="head"><span class="name">early-stage operations</span> — data, modeling &amp; pricing</div>
+        <div class="body">two years turning the business model into daily operational workflows.</div>
+        <div class="meta">team of 4–6 · 4 standardized tracking lines</div>
       </div>
     </div>
 
