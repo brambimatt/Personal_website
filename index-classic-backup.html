@@ -6,8 +6,8 @@
 <!-- Impedisce l'indicizzazione: la pagina è accessibile solo tramite link diretto -->
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <meta name="googlebot" content="noindex, nofollow">
-<title>[ANTEPRIMA] Matteo Brambilla — bullet layout</title>
-<meta name="description" content="Anteprima di lavoro: nuova sezione portfolio a bullet point. Non è la home pubblica.">
+<title>Matteo Brambilla — Chief of Staff / Founder Associate</title>
+<meta name="description" content="Matteo Brambilla — early-stage operator across startups and venture capital. Looking for a Chief of Staff / Founder Associate role alongside a CEO.">
 
 <!-- Caratteri (Clash Display + General Sans da Fontshare, JetBrains Mono da Google) -->
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -68,12 +68,6 @@ a{ color:inherit; }
 .topbar nav .solid{ background:var(--ink); color:#fff; --btn-line:#FFFFFF; --btn-glow:rgba(255,255,255,.6); }
 
 .wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
-
-/* ---- banner anteprima (solo in questo file di lavoro) ---- */
-.preview-flag{
-  font-family:var(--font-mono); font-size:12px; letter-spacing:.04em;
-  text-align:center; padding:8px 16px; background:#0B0B0B; color:#fff;
-}
 
 /* ---- hero (bianco) ---- */
 .hero{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; padding:80px 0 70px; }
@@ -145,62 +139,18 @@ section{ padding:34px 0; }
 .halo-wrap:hover .halo-orbit{ opacity:0; animation-play-state:paused; }
 @keyframes orbit{ to{ --bd:360deg; } }
 
-/* about (senza scatola) */
-.about-body{ max-width:70ch; }
+/* about */
 .about h2{ font-family:var(--font-display); font-weight:600; font-size:clamp(1.4rem,3vw,1.95rem); line-height:1.2; color:var(--ink); margin-bottom:16px; letter-spacing:-.01em; }
 .about p{ color:var(--body); font-size:16.5px; }
 
-/* =========================================================
-   PORTFOLIO — nuova struttura a bullet point (unica lista)
-   Niente rettangoli separati: un solo blocco, righe con marker,
-   divisori sottili tra una voce e l'altra, "rail" verticale a sinistra.
-   ========================================================= */
-.port-list{
-  list-style:none;
-  position:relative;
-  padding-left:26px;
-}
-.port-item{
-  position:relative;
-  padding:26px 0;
-  border-bottom:1px solid var(--border);
-}
-.port-item:first-child{ padding-top:4px; }
-.port-item:last-child{ border-bottom:0; padding-bottom:4px; }
-
-/* marker (il "bullet") a inizio riga */
-.port-item::before{
-  content:"";
-  position:absolute;
-  left:-22px;
-  top:36px;
-  width:8px; height:8px;
-  background:var(--ink);
-  border-radius:50%;
-  transition:transform .25s ease, box-shadow .25s ease;
-}
-.port-item:first-child::before{ top:14px; }
-.port-item:hover::before{
-  transform:scale(1.25);
-  box-shadow:0 0 0 4px var(--bg), 0 0 14px 2px rgba(12,12,12,.35);
-}
-
-/* titolo + meta sulla stessa riga */
-.port-head{ display:flex; align-items:baseline; flex-wrap:wrap; gap:6px 12px; }
-.port-title{ font-family:var(--font-display); font-weight:600; font-size:1.3rem; color:var(--ink); letter-spacing:-.01em; }
-.port-meta{ color:var(--muted); font-size:13.5px; }
-
-.port-desc{ color:var(--body); font-size:15.5px; margin:10px 0 12px; max-width:70ch; }
-
-/* metrica (mono) + eventuale link sulla stessa riga */
-.port-foot{ display:flex; align-items:center; flex-wrap:wrap; gap:10px 18px; }
-.port-metric{ font-family:var(--font-mono); font-weight:500; color:var(--ink); font-size:13.5px; }
-.port-link{
-  font-family:var(--font-mono); font-size:13px; color:var(--ink);
-  text-decoration:none; border-bottom:1px solid var(--ink);
-  padding-bottom:1px; transition:opacity .2s ease;
-}
-.port-link:hover{ opacity:.6; }
+/* progetti */
+.grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; }
+.proj{ display:flex; flex-direction:column; }
+.proj .ptitle{ font-family:var(--font-display); font-weight:600; font-size:1.35rem; color:var(--ink); }
+.proj .pmeta{ color:var(--muted); font-size:13.5px; margin-top:3px; }
+.proj .pdesc{ color:var(--body); font-size:15px; margin:14px 0; flex:1; }
+.proj .pmetric{ font-family:var(--font-mono); font-weight:500; color:var(--ink); font-size:13.5px; padding-top:14px; border-top:1px solid var(--border); }
+.proj .plinks{ margin-top:16px; }
 
 /* studi (riga sola, bianca) */
 .studi{ display:flex; align-items:baseline; gap:14px; font-size:15.5px; }
@@ -223,7 +173,7 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
   .wrap{ padding:0 20px; }
   .contact{ flex-direction:column; align-items:flex-start; }
   .studi{ flex-direction:column; gap:4px; }
-  .port-list{ padding-left:22px; }
+  .grid{ grid-template-columns:1fr; }
 }
 
 /* accessibilità: rispetta chi preferisce meno movimento */
@@ -240,8 +190,6 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
-
-  <div class="preview-flag">ANTEPRIMA DI LAVORO · bullet layout · la home pubblica (index.html) non è modificata</div>
 
   <header class="topbar">
     <div class="left">
@@ -277,9 +225,12 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
   <div class="wrap">
     <section class="about reveal">
       <p class="sec-label"><span class="n">01</span> / About</p>
-      <div class="about-body">
-        <h2>I like finding clarity and structure in uncertain situations.</h2>
-        <p>Launched the first hacker house in Italy and organized dozens of tech events. Worked on data analysis and business modeling in early-stage startups. Moved into VC to understand how investors evaluate companies, serving as Chief of Staff and in-house tech.</p>
+      <div class="halo-wrap">
+        <span class="halo-orbit"></span>
+        <div class="card">
+          <h2>I like finding clarity and structure in uncertain situations.</h2>
+          <p>Launched the first hacker house in Italy and organized dozens of tech events. Worked on data analysis and business modeling in early-stage startups. Moved into VC to understand how investors evaluate companies, serving as Chief of Staff and in-house tech.</p>
+        </div>
       </div>
     </section>
   </div>
@@ -287,62 +238,62 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
   <div class="wrap">
     <section id="portfolio" class="reveal">
       <p class="sec-label"><span class="n">02</span> / Portfolio</p>
+      <div class="grid">
 
-      <ul class="port-list">
+        <div class="halo-wrap">
+          <span class="halo-orbit"></span>
+          <div class="card proj">
+            <div class="ptitle">Apeira</div>
+            <div class="pmeta">Milan's first international hacker house</div>
+            <div class="pdesc">Launched the hacker house, organized dozens of tech events: hackathons, hackerspaces, lectures, and more, handling all logistics and curation.</div>
+            <div class="pmetric">~20 events · ~800 people · 6 cities</div>
+            <div class="plinks"><a href="apeira.html" class="btn btn-primary btn-sm">Dedicated page →</a></div>
+          </div>
+        </div>
 
-        <li class="port-item">
-          <div class="port-head">
-            <span class="port-title">Apeira</span>
+        <div class="halo-wrap">
+          <span class="halo-orbit"></span>
+          <div class="card proj">
+            <div class="ptitle">Moonstone</div>
+            <div class="pmeta">VC · Deeptech, Climate &amp; Health</div>
+            <div class="pdesc">Portfolio platform that is single source of truth end-to-end for team and fund partners; deal flow, hiring and team management.</div>
+            <div class="pmetric">75 companies tracked · 100+ reports</div>
+            <div class="plinks"><a href="moonstone.html" class="btn btn-primary btn-sm">Case study →</a></div>
           </div>
-          <p class="port-desc">Launched the hacker house, organized dozens of tech events: hackathons, hackerspaces, lectures, and more, handling all logistics and curation.</p>
-          <div class="port-foot">
-            <span class="port-metric">~20 events · ~800 people · 6 cities</span>
-            <a href="apeira.html" class="port-link">Dedicated page →</a>
-          </div>
-        </li>
+        </div>
 
-        <li class="port-item">
-          <div class="port-head">
-            <span class="port-title">Moonstone</span>
-            <span class="port-meta">VC · Deeptech, Climate &amp; Health</span>
+        <div class="halo-wrap">
+          <span class="halo-orbit"></span>
+          <div class="card proj">
+            <div class="ptitle">Early-stage operations</div>
+            <div class="pmeta">Early-stage startup · team of 4-6</div>
+            <div class="pdesc">Data analysis, business modeling, pricing and operational processes: from the business model to daily workflows.</div>
+            <div class="pmetric">2 years · 4 standardized tracking lines</div>
           </div>
-          <p class="port-desc">Portfolio platform that is single source of truth end-to-end for team and fund partners; deal flow, hiring and team management.</p>
-          <div class="port-foot">
-            <span class="port-metric">75 companies tracked · 100+ reports</span>
-            <a href="moonstone.html" class="port-link">Case study →</a>
-          </div>
-        </li>
+        </div>
 
-        <li class="port-item">
-          <div class="port-head">
-            <span class="port-title">Consulting</span>
+        <div class="halo-wrap">
+          <span class="halo-orbit"></span>
+          <div class="card proj">
+            <div class="ptitle">Consulting</div>
+            <div class="pmeta">Market assessment B2B · NDA</div>
+            <div class="pdesc">5-month end-to-end market discovery project: market assessment and pre-selling to support capital allocation decisions.</div>
+            <div class="pmetric">Output guiding ~€10M in investment decisions</div>
           </div>
-          <p class="port-desc">5-month end-to-end market discovery project: market assessment and pre-selling to support capital allocation decisions.</p>
-          <div class="port-foot">
-            <span class="port-metric">Output guiding ~€10M in investment decisions</span>
-          </div>
-        </li>
+        </div>
 
-        <li class="port-item">
-          <div class="port-head">
-            <span class="port-title">Early-stage operations</span>
-          </div>
-          <p class="port-desc">Data analysis, business modeling, pricing and operational processes: from the business model to daily workflows.</p>
-          <div class="port-foot">
-            <span class="port-metric">2 years · 4 standardized tracking lines</span>
-          </div>
-        </li>
-
-      </ul>
+      </div>
     </section>
   </div>
 
   <div class="wrap">
     <section class="reveal">
       <p class="sec-label"><span class="n">03</span> / Education</p>
-      <div class="studi">
-        <span class="role">BA Economics &amp; Business</span>
-        <span class="det">University of Milan-Bicocca · one year at Universidad de Cantabria (Spain) · fluent Spanish</span>
+      <div class="card">
+        <div class="studi">
+          <span class="role">BA Economics &amp; Business</span>
+          <span class="det">University of Milan-Bicocca · one year at Universidad de Cantabria (Spain) · fluent Spanish</span>
+        </div>
       </div>
     </section>
   </div>
@@ -350,7 +301,7 @@ footer{ padding:50px 32px 70px; color:var(--muted); font-size:13px; text-align:c
   <div class="wrap">
     <section class="reveal">
       <p class="sec-label"><span class="n">04</span> / Contact</p>
-      <div class="contact">
+      <div class="card contact">
         <div class="ctas">
           <a href="mailto:matteob.0375@gmail.com" class="btn btn-primary btn-sm">matteob.0375@gmail.com</a>
           <a href="tel:+393461819020" class="btn btn-primary btn-sm">+39 346 181 9020</a>
