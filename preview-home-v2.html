@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -19,6 +19,7 @@
   --ink:#1b1b1a;
   --muted:#b0aea8;
   --serif:'Newsreader', Georgia, 'Times New Roman', serif;
+  --mono:'JetBrains Mono', ui-monospace, monospace;
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -50,10 +51,12 @@ p{ margin-bottom:1.35em; max-width:none; }
 /* introduzione di sezione (es. "what i've built:") */
 .lead{ margin:2.2em 0 .6em; }
 
-/* voci indentate: un solo stile, stesso peso e colore per tutto */
+/* voci-progetto: cos'è / cosa ho fatto sopra, numeri a capo in monospace */
 .items{ padding-left:1.9em; }
-.item{ margin-bottom:.55em; }
-.item:last-child{ margin-bottom:0; }
+.entry{ margin-bottom:1.5em; }
+.entry:last-child{ margin-bottom:0; }
+.entry .nums{ margin-top:.35em; }
+.num{ font-family:var(--mono); font-size:.8em; letter-spacing:-.01em; }
 
 /* riga semplice (studi, lingue) */
 .line{ padding-left:1.9em; margin-bottom:.55em; }
@@ -99,10 +102,26 @@ a:hover{ opacity:.55; }
 
     <div class="lead">what i've built:</div>
     <div class="items">
-      <div class="item">apeira — italy's first international hacker house. launched it and ran ~20 tech events across 6 cities for ~800 people. <a href="apeira.html">dedicated page →</a></div>
-      <div class="item">moonstone — chief of staff at a deeptech, climate &amp; health VC. built the portfolio platform: a single source of truth for team and partners. <a href="moonstone.html">case study →</a></div>
-      <div class="item">5-month end-to-end discovery project — market assessment and pre-selling that guided ~€10m in investment decisions.</div>
-      <div class="item">early-stage operations — two years of data analysis, business modeling and pricing in a team of 4–6.</div>
+      <div class="entry">
+        <div class="what">apeira — italy's first international hacker house.</div>
+        <div class="did">launched it and ran dozens of tech events: hackathons, hackerspaces, lectures.</div>
+        <div class="nums"><span class="num">~20 events · ~800 people · 6 cities</span> · <a href="apeira.html">dedicated page →</a></div>
+      </div>
+      <div class="entry">
+        <div class="what">moonstone — a deeptech, climate &amp; health VC.</div>
+        <div class="did">as chief of staff, i built the portfolio platform: a single source of truth for team and partners.</div>
+        <div class="nums"><span class="num">75 companies tracked · 100+ reports</span> · <a href="moonstone.html">case study →</a></div>
+      </div>
+      <div class="entry">
+        <div class="what">5-month end-to-end discovery project.</div>
+        <div class="did">market assessment and pre-selling to support capital allocation decisions.</div>
+        <div class="nums"><span class="num">output guided ~€10m in investment decisions</span></div>
+      </div>
+      <div class="entry">
+        <div class="what">early-stage operations — data, modeling &amp; pricing.</div>
+        <div class="did">two years turning the business model into daily operational workflows.</div>
+        <div class="nums"><span class="num">team of 4–6 · 4 standardized tracking lines</span></div>
+      </div>
     </div>
 
     <div class="lead">studies:</div>
