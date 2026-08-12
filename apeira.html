@@ -6,8 +6,8 @@
 <!-- Impedisce l'indicizzazione: la pagina è accessibile solo tramite link diretto -->
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <meta name="googlebot" content="noindex, nofollow">
-<title>Apeira — Milan's hacker house · The Italy Tour</title>
-<meta name="description" content="Apeira — Milan's hacker house. We took a van across Italy: 6 cities, 600+ builders, hackathons, lectures and hackerspaces. Follow the tour on the map.">
+<title>Apeira · Milan's hacker house · The Italy Tour</title>
+<meta name="description" content="Apeira · Milan's hacker house. We took a van across Italy: 6 cities, 600+ builders, hackathons, lectures and hackerspaces. Follow the tour on the map.">
 
 <!-- Caratteri (Clash Display + General Sans da Fontshare, JetBrains Mono + Caveat da Google) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,11 +24,11 @@
 @property --bd{ syntax:'<angle>'; inherits:false; initial-value:0deg; }
 
 :root{
-  --bg:#FFFFFF;
+  --bg:#fdfdfc;
   --card:#FFFFFF;
-  --ink:#0B0B0B;
-  --body:#2C2C2C;
-  --muted:#7C7C7C;
+  --ink:#1b1b1a;
+  --body:#1b1b1a;
+  --muted:#8f8d87;
   --border:#E6E5E1;
   --shadow:0 1px 2px rgba(0,0,0,.05), 0 12px 34px rgba(0,0,0,.04);
   --font-display:'Newsreader', Georgia, 'Times New Roman', serif;
@@ -40,9 +40,7 @@
 html{ scroll-behavior:smooth; }
 body{
   background-color:var(--bg);
-  background-image:radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px);
-  background-size:24px 24px;
-  color:var(--body); font-family:var(--font-body); -webkit-font-smoothing:antialiased; line-height:1.55;
+  color:var(--body); font-family:var(--font-body); -webkit-font-smoothing:antialiased; line-height:1.6;
 }
 a{ color:inherit; }
 
@@ -72,12 +70,14 @@ a{ color:inherit; }
 .status{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:12px; color:var(--ink); border:1px solid var(--border); border-radius:999px; padding:6px 12px; margin-bottom:22px; }
 .status .d{ width:7px; height:7px; border-radius:50%; background:var(--ink); animation:pulse 2s infinite; }
 @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
-.eyebrow{ font-family:var(--font-mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); margin-bottom:18px; }
-.back{ font-family:var(--font-mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:28px; }
+.eyebrow{ font-family:var(--font-mono); font-size:12px; letter-spacing:.05em; text-transform:none; color:var(--muted); margin-bottom:16px; }
+.back{ font-size:14px; color:var(--muted); text-decoration:underline; text-underline-offset:2.5px; display:inline-flex; align-items:center; gap:6px; margin-bottom:28px; }
 .back:hover{ color:var(--ink); }
-h1{ font-family:var(--font-display); font-weight:700; font-size:clamp(3rem,7.5vw,6.2rem); line-height:.95; letter-spacing:-.02em; color:var(--ink); margin-bottom:22px; }
-.info{ font-size:16px; color:var(--ink); margin-bottom:16px; }
-.blurb{ font-size:17px; color:var(--muted); max-width:46ch; margin-bottom:30px; }
+h1{ font-family:var(--font-display); font-weight:600; font-size:clamp(2rem, 1.2rem + 2.6vw, 3.1rem); line-height:1; letter-spacing:-.015em; color:var(--ink); margin-bottom:12px; }
+.info{ font-size:1.05em; color:var(--muted); margin-bottom:18px; }
+.blurb{ font-size:1em; color:var(--body); max-width:52ch; margin-bottom:30px; }
+.tourlink{ font-size:1em; color:var(--ink); text-decoration:underline; text-decoration-thickness:.6px; text-underline-offset:2.5px; }
+.tourlink:hover{ opacity:.55; }
 .ctas{ display:flex; flex-wrap:wrap; gap:12px; }
 
 .btn{ position:relative; font-family:var(--font-body); font-size:15px; padding:13px 22px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; transition:all .18s; --btn-line:#0B0B0B; --btn-glow:rgba(11,11,11,.5); background:none; border:0; }
@@ -114,7 +114,7 @@ h1{ font-family:var(--font-display); font-weight:700; font-size:clamp(3rem,7.5vw
 
 /* ---- sezioni ---- */
 section{ padding:34px 0; }
-.sec-label{ font-family:var(--font-mono); font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
+.sec-label{ font-family:var(--font-mono); font-size:12px; letter-spacing:.04em; text-transform:none; color:var(--muted); margin-bottom:22px; }
 .sec-label .n{ color:var(--ink); }
 .sec-h{ font-family:var(--font-display); font-weight:600; font-size:clamp(1.5rem,3.4vw,2.2rem); line-height:1.15; color:var(--ink); letter-spacing:-.01em; margin-bottom:16px; }
 .lead{ color:var(--body); font-size:16.5px; max-width:70ch; }
@@ -229,29 +229,17 @@ footer a{ color:var(--ink); text-decoration:none; }
 </head>
 <body>
 
-  <!-- barra fissa in alto -->
-  <header class="topbar">
-    <div class="left">
-      <a class="name" href="index.html">Matteo Brambilla</a>
-    </div>
-    <nav>
-      <a href="#tour" class="ghost">The Tour</a>
-      <a href="index.html#portfolio" class="ghost">Portfolio</a>
-      <a href="https://www.linkedin.com/in/matteo-brambilla-77528b255/" class="solid">LinkedIn</a>
-    </nav>
-  </header>
-
   <!-- HERO -->
   <div class="wrap">
     <div class="hero reveal">
       <div>
-        <a class="back" href="index.html">← Back</a>
-        <p class="eyebrow">Milan · Hacker house</p>
-        <h1>Apeira</h1>
+        <a class="back" href="index.html">← back</a>
+        <p class="eyebrow">milan · hacker house</p>
+        <h1>apeira</h1>
         <p class="info">the principle of the boundless</p>
-        <p class="blurb">We gather Europe's most curious builders into a single house in Milan and give them everything they need to do the most ambitious work of their lives.</p>
+        <p class="blurb">we gather europe's most curious builders into a single house in milan and give them everything they need to do the most ambitious work of their lives.</p>
         <div class="ctas">
-          <a href="#tour" class="btn btn-primary">See the tour ↓</a>
+          <a href="#tour" class="tourlink">see the tour ↓</a>
         </div>
       </div>
       <div class="film">
@@ -260,7 +248,7 @@ footer a{ color:var(--ink); text-decoration:none; }
           <span class="corner tl"></span><span class="corner tr"></span>
           <span class="corner bl"></span><span class="corner br"></span>
           <div class="film-frame" id="filmFrame" data-yt="4U3_t56Zcvk" data-start="0">
-            <img class="film-thumb" src="https://i.ytimg.com/vi/4U3_t56Zcvk/maxresdefault.jpg" alt="for the misfits — Apeira launch film"
+            <img class="film-thumb" src="https://i.ytimg.com/vi/4U3_t56Zcvk/maxresdefault.jpg" alt="for the misfits · Apeira launch film"
                  onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/4U3_t56Zcvk/hqdefault.jpg'">
             <button class="film-play" type="button" aria-label="Play the launch film"><span class="pbtn"></span></button>
           </div>
@@ -272,11 +260,10 @@ footer a{ color:var(--ink); text-decoration:none; }
   <!-- THE TOUR -->
   <div class="wrap">
     <section id="tour" class="reveal">
-      <p class="sec-label"><span class="n">01</span> / The Tour</p>
-      <h2 class="sec-h">A van across Italy.</h2>
-      <p class="lead">To launch the hacker house, we organized a national tour across Italy in a van — visiting 6 cities and hosting hackathons, lectures, and hackerspaces.</p>
-      <p class="lead">We engaged 600+ builders and visited key innovation hubs like the Apple Developer Academy in Naples and the Bending Spoons offices, alongside fantastic guests such as Alberto Sangiovanni-Vincentelli.</p>
-      <p class="tour-stats"><b>600+ builders</b><span>·</span><b>6 cities</b><span>·</span><b>~20 events</b></p>
+      <p class="sec-label"><span class="n">01</span> / the tour</p>
+      <h2 class="sec-h">a van across italy.</h2>
+      <p class="lead">to launch the hacker house, we organized a national tour across italy in a van, visiting 6 cities and hosting hackathons, lectures, and hackerspaces. we visited key innovation hubs like the apple developer academy in naples and the bending spoons offices, with fantastic guests such as alberto sangiovanni-vincentelli.</p>
+      <p class="tour-stats"><b>923 builders engaged</b><span>·</span><b>552 directly involved</b><span>·</span><b>320K organic reach</b><span>·</span><b>€50K in prizes/grants</b><span>·</span><b>6 cities</b></p>
 
       <!-- mappa interattiva a tutta larghezza: pop-up attorno alla mappa con frecce -->
       <div class="tour-stage" aria-hidden="true">
@@ -348,8 +335,8 @@ footer a{ color:var(--ink); text-decoration:none; }
         <article class="stop card" data-key="Roma" data-x="325.7" data-y="398.1">
           <p class="stop-city"><b>04</b> · Roma</p>
           <div class="stop-photos two">
-            <span class="ph" data-label="Roma"><img src="assets/img/cities/roma-1.jpg" alt="Hackathon in Rome — builders at laptops" loading="lazy" onerror="this.remove()"></span>
-            <span class="ph" data-label="Roma"><img src="assets/img/cities/roma-2.jpg" alt="Hackathon in Rome — robotic-arm build" loading="lazy" onerror="this.remove()"></span>
+            <span class="ph" data-label="Roma"><img src="assets/img/cities/roma-1.jpg" alt="Hackathon in Rome, builders at laptops" loading="lazy" onerror="this.remove()"></span>
+            <span class="ph" data-label="Roma"><img src="assets/img/cities/roma-2.jpg" alt="Hackathon in Rome, robotic-arm build" loading="lazy" onerror="this.remove()"></span>
           </div>
           <h3 class="stop-title">Hackathon</h3>
           <p class="stop-blurb">100 builders, one day of building on projects or research, a €50K prize pool, with Codex and 8 Italian startups.</p>
@@ -376,7 +363,7 @@ footer a{ color:var(--ink); text-decoration:none; }
     </section>
   </div>
 
-  <footer>© 2026 Apeira — Milan · <a href="index.html">Matteo Brambilla</a></footer>
+  <footer>© 2026 Apeira, Milan · <a href="index.html">Matteo Brambilla</a></footer>
 
   <script>
 // ---- 1) Rivela le sezioni mentre scorri (fade-up). Niente librerie. ----
