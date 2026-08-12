@@ -76,6 +76,8 @@ a{ color:inherit; }
 h1{ font-family:var(--font-display); font-weight:600; font-size:clamp(2rem, 1.2rem + 2.6vw, 3.1rem); line-height:1; letter-spacing:-.015em; color:var(--ink); margin-bottom:12px; }
 .info{ font-size:1.05em; color:var(--muted); margin-bottom:18px; }
 .blurb{ font-size:1em; color:var(--body); max-width:52ch; margin-bottom:30px; }
+.tourlink{ font-size:1em; color:var(--ink); text-decoration:underline; text-decoration-thickness:.6px; text-underline-offset:2.5px; }
+.tourlink:hover{ opacity:.55; }
 .ctas{ display:flex; flex-wrap:wrap; gap:12px; }
 
 .btn{ position:relative; font-family:var(--font-body); font-size:15px; padding:13px 22px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; transition:all .18s; --btn-line:#0B0B0B; --btn-glow:rgba(11,11,11,.5); background:none; border:0; }
@@ -239,7 +241,7 @@ footer a{ color:var(--ink); text-decoration:none; }
         <p class="info">the principle of the boundless</p>
         <p class="blurb">we gather europe's most curious builders into a single house in milan and give them everything they need to do the most ambitious work of their lives.</p>
         <div class="ctas">
-          <a href="#tour" class="btn btn-primary">see the tour ↓</a>
+          <a href="#tour" class="tourlink">see the tour ↓</a>
         </div>
       </div>
       <div class="film">
